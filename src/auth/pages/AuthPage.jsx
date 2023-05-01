@@ -1,6 +1,5 @@
-import { LoginForm } from "../components/LoginForm";
 import { useLocation } from 'react-router-dom';
-import { RegisterForm } from "../components/RegisterForm";
+import { LoginForm, RegisterForm } from '../components';
 
 export const AuthPage = () => {
 
@@ -14,7 +13,7 @@ export const AuthPage = () => {
             <h1> ¡Bienvenido a Studyverse! </h1>
 
             {
-                pathname == '/' && <LoginForm />
+                pathname == '/login' && <LoginForm />
             }
 
             {

@@ -1,3 +1,4 @@
+import { UserProvider } from "./context/UserProvider";
 import { AppRouter } from "./routers/AppRouter";
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
         Header
       </header>
 
-      <AppRouter />
+      <UserProvider>
+
+        <AppRouter />
+
+      </UserProvider>
 
       <footer>
         Footer

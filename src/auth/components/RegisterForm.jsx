@@ -30,7 +30,7 @@ export const RegisterForm = () => {
 
             </form>
 
-            <Link to='/'> Login </Link>
+            <Link to='/login'> Login </Link>
 
             <Link to='#'> Recuperar contraseña </Link>
 
