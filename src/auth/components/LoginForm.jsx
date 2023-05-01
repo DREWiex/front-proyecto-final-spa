@@ -1,58 +1,62 @@
-import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext'
 import { useForm } from '../../hooks/useForm';
+import { useAuthFetch } from '../../hooks/useAuthFetch';
 
 export const LoginForm = () => {
 
-    const {user, setUser} = useContext(UserContext);
+    const { form, sent, handleChange, handleSubmit } = useForm();
 
-    const { form, sent, handlerChange, handlerSubmit } = useForm();
+    // const url = 'http://localhost:3000/auth/login';
 
-    
+    // const isAuth = useAuthFetch(url, 'POST', form);
 
-  return (
 
-    <>
+    return (
 
-    <form
-        action="#"
-        method="#"
-        onSubmit={handlerSubmit}
-    >
+        <section>
 
-        <label htmlFor="email"> E-mail </label>
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="E-mail"
-            onChange={handlerChange}
-        />
+            <h2> Login </h2>
 
-        <label htmlFor="password"> Password </label>
-        <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            onChange={handlerChange}
-        />
+            <form
+                action=""
+                method=""
+                onSubmit={handleSubmit}
+            >
 
-        <input
-            type="submit"
-            value={sent ? 'Enviado' : 'Enviar'}
-            disabled={sent}
-        />
+                <label htmlFor="email"> E-mail </label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="E-mail"
+                    onChange={handleChange}
+                    disabled={sent}
+                />
 
-    </form>
+                <label htmlFor="password"> Password </label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    onChange={handleChange}
+                    disabled={sent}
+                />
 
-    <Link to='/register'> Crear una cuenta </Link>
+                <input
+                    type="submit"
+                    value={sent ? 'Enviado' : 'Enviar'}
+                    disabled={sent}
+                />
 
-    <Link to='#'> Recuperar contraseña </Link>
+            </form>
 
-    </>
+            <Link to='/register'> Crear una cuenta </Link>
 
-  );
+            <Link to='#'> Recuperar contraseña </Link>
+
+        </section>
+
+    );
 
 };

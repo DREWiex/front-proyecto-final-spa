@@ -22,7 +22,7 @@ export const useForm = (initialState) => {
     }; //FUNC-SERIALIZEFORM
 
 
-    const handlerChange = ({target}) => {
+    const handleChange = ({target}) => {
 
         const { name, value } = target;
 
@@ -33,10 +33,10 @@ export const useForm = (initialState) => {
             [name]: value // [name] escucha los atributos 'name' del form (sin [] sería el 'key'; por ej., 'email')
         });
 
-    }; //FUNC-HANDLERCHANGE
+    }; //FUNC-HANDLECHANGE
 
 
-    const handlerSubmit = (ev) => {
+    const handleSubmit = (ev) => {
 
         ev.preventDefault();
 
@@ -46,14 +46,14 @@ export const useForm = (initialState) => {
 
         setSent(true);
 
-    }; //FUNC-HANDLERSUBMIT
+    }; //FUNC-HANDLESUBMIT
 
 
     return{
         form,
         sent,
-        handlerSubmit,
-        handlerChange
+        handleSubmit,
+        handleChange
     };
 
 };
