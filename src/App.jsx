@@ -5,23 +5,11 @@ function App() {
 
   return (
 
-    <>
-
-      <header>
-        Header
-      </header>
-
-      <UserProvider>
+    <UserProvider>
 
         <AppRouter />
 
-      </UserProvider>
-
-      <footer>
-        Footer
-      </footer>
-
-    </>
+    </UserProvider>
 
   );
 

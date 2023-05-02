@@ -4,6 +4,8 @@ export const useForm = (initialState) => {
 
     const [ form, setForm ] = useState(initialState);
 
+    const [ body, setBody ] = useState({}); // 'email' y 'password' que se enviarán al fetch por argumento
+
     const [ sent, setSent ] = useState(false);
 
 
@@ -30,7 +32,7 @@ export const useForm = (initialState) => {
 
         setForm({
             ...form,
-            [name]: value // [name] escucha los atributos 'name' del form (sin [] sería el 'key'; por ej., 'email')
+            [name]: value
         });
 
     }; //FUNC-HANDLECHANGE
@@ -42,7 +44,7 @@ export const useForm = (initialState) => {
 
         const data = serializeForm(ev.target);
 
-        setForm(data);
+        setBody(data);
 
         setSent(true);
 
@@ -50,7 +52,7 @@ export const useForm = (initialState) => {
 
 
     return{
-        form,
+        body,
         sent,
         handleSubmit,
         handleChange
