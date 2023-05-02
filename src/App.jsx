@@ -7,7 +7,11 @@ function App() {
 
     <UserProvider>
 
+      <main className="flex-column">
+
         <AppRouter />
+
+      </main>
 
     </UserProvider>
 

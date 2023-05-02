@@ -5,8 +5,13 @@
     --light: #edebeb;
     --dark: #12191e;
 
+    --lightprimary: #d0fbf0;
     --primary: #043529;
+    --darkprimary: #042f24;
+
+    --lightsecondary: #d7f4e0;
     --secondary: #30a954;
+    --darksecondary: #0b2814;
 
     --lightsuccess: #d3f8df;
     --success: #189841;
@@ -21,19 +26,155 @@
     --darkdanger: #30030b;
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* SELECTORES DE ETIQUETA *************************/
+
 body{
-    /* font-family: 'Lora', serif; */
     font-family: 'Raleway', sans-serif;
+    color: var(--dark);
 }
 
-.flex{
+main{
+    min-height: calc(100vh);
+}
+
+a{
+    text-decoration: none;
+    color: var(--dark);
+}
+
+label{
+    display: none !important;
+}
+
+
+/* SELECTORES DE CLASE *************************/
+
+/* FORMS AUTH *************************/
+
+.auth{
     display: flex;
-}
-
-.fd-column{
     flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
 }
 
-.pointer{
+.auth form{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.auth form a{
+    width: fit-content;
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 40px auto;
+}
+
+.auth form a:focus, .auth form a:hover{
+    font-weight: 600;
+}
+
+.auth form a:active{
+    font-weight: 700;
+}
+
+.auth form input{
+    min-width: 100px;
+    max-width: 400px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--light);
+}
+
+.auth form > *{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.submit{
+    font-size: 1rem;
+    min-width: 100px;
+    max-width: 200px !important;
+    border-radius: 20px;
+    margin-top: 30px !important;
+    color: var(--white);
+    background-color: var(--secondary) !important;
     cursor: pointer;
 }
+
+.submit:focus, .submit:hover{
+    color: var(--secondary);
+    background-color: var(--white) !important;
+    outline: 1px solid var(--secondary);
+}
+
+.submit:active{
+    color: var(--primary);
+    background-color: var(--white) !important;
+    outline: 1px solid var(--primary);
+}
+
+
+/* REUTILIZABLES *************************/
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.primary{
+    color: var(--primary);
+}
+
+.secondary{
+    color: var(--secondary);
+}
+
+.lora{
+    font-family: 'Lora', serif;
+}
+
+
+/* ***************************************/
+/* MEDIA QUERIES *************************/
+/* ***************************************/
+
+/* 768px *************************/
+
+@media screen and (min-width:768px) {
+
+
+  
+} /* 768px end */
+  
+  
+/* 992px *************************/
+  
+@media screen and (min-width:992px) {
+  
+    /* label{
+        display: initial !important;
+    } */
+  
+} /* 992px end */

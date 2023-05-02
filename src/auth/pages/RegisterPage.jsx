@@ -23,16 +23,25 @@ export const RegisterPage = () => {
                 sent && user.ok && <Navigate to='/home' /> // condicional: si 'ok' es true, redirige al home
             }
 
-            <h1> ¡Bienvenido a Studyverse! </h1>
+            <div className='auth'>
 
-            <section className="flex fd-column">
+                <header>
 
-                <h2> Registro </h2>
+                    <p className='title secondary'> ¡Bienvenido! </p>
+
+                    <h1 className='title lora primary italic'> Studyverse </h1>
+
+                </header>
 
                 <form
-                    className="flex fd-column"
                     onSubmit={handleSubmit}
                 >
+
+                    <Link to='/login'>
+                        <span className="material-symbols-rounded">
+                            arrow_back
+                        </span>
+                    </Link>
 
                     <label htmlFor="first_name"> Nombre </label>
                     <input
@@ -66,7 +75,7 @@ export const RegisterPage = () => {
                         type="password"
                         id="password"
                         name="password"
-                        placeholder='Password'
+                        placeholder='Contraseña'
                         onChange={handleChange}
                     />
 
@@ -86,19 +95,15 @@ export const RegisterPage = () => {
                     />
 
                     <input
-                        className='pointer'
+                        className='submit'
                         type="submit"
-                        value={sent ? 'Enviado' : 'Enviar'}
+                        value="Crear cuenta"
                         disabled={sent}
                     />
 
                 </form>
 
-                <Link to='/login'> Login </Link>
-
-                <Link to='#'> Recuperar contraseña </Link>
-
-            </section>
+            </div>
 
         </>
 

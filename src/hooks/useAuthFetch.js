@@ -25,9 +25,13 @@ export const useAuthFetch = (url, method, body, status) => {
 
         if(fetch.ok){
 
+            const { data, token } = fetch;
+
             setUser(fetch); // sobreescribe el estado con el objeto que recibe del fetch
 
-            cookies.set('token', fetch.token);
+            cookies.set('token', token); // guarda el 'token' del usuario en una cookie
+
+            cookies.set('role', data.role); // guarda el 'role' del usuario en una cookie
 
         } else {
 

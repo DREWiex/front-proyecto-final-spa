@@ -8,7 +8,7 @@ export const AppRouter = () => {
 
   const cookies = new Cookies();
 
-  const token = cookies.get('token');
+  const { role, token } = cookies.getAll();
 
 
   return (
@@ -18,7 +18,7 @@ export const AppRouter = () => {
       <Route path='/' element={<LoginPage />} />
       <Route path='register' element={<RegisterPage />} />
 
-      <Route path='home' element={<HomePage />} />
+      <Route path='home' element={<HomePage />} />,
 
       <Route path='dashboard-admin' element={<DashboardPage />} />
 
