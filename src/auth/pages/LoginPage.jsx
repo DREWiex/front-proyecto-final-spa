@@ -12,7 +12,7 @@ export const LoginPage = () => {
 
     const url = 'http://localhost:3000/auth/login';
 
-    useAuthFetch(url, 'POST', body);
+    useAuthFetch(url, 'POST', body, sent);
 
 
     return (
@@ -20,7 +20,7 @@ export const LoginPage = () => {
         <>
 
             {
-                sent && user.ok && <Navigate to='home' /> // condicional: si 'ok' es true, redirige al home
+                sent && user.ok && <Navigate to='/home' /> // condicional: si 'ok' es true, redirige al home
             }
 
             <h1> ¡Bienvenido a Studyverse! </h1>

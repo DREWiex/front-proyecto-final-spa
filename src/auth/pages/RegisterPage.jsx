@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { useForm } from '../../hooks/useForm';
 import { useAuthFetch } from '../../hooks/useAuthFetch';
@@ -12,14 +12,16 @@ export const RegisterPage = () => {
 
     const url = 'http://localhost:3000/api/v1/users';
 
-    sent && useAuthFetch(url, 'POST', body);
-
-    console.log(user);
+    useAuthFetch(url, 'POST', body, sent);
 
 
     return (
 
         <>
+
+            {
+                sent && user.ok && <Navigate to='/home' /> // condicional: si 'ok' es true, redirige al home
+            }
 
             <h1> ¡Bienvenido a Studyverse! </h1>
 

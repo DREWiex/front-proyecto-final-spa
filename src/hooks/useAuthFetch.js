@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { authFetch } from "../api/authFetch";
 
-export const useAuthFetch = (url, method, body) => {
+export const useAuthFetch = (url, method, body, status) => {
 
     const { user, setUser } = useContext(UserContext);
 
@@ -16,7 +16,7 @@ export const useAuthFetch = (url, method, body) => {
 
     useEffect(() => {
 
-        fetchingUser();
+        status && fetchingUser(); // condicional: si 'status' es true, invoca la func del fetch
 
     }, [body])
 
