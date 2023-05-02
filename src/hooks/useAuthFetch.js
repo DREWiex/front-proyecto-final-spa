@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { authFetch } from "../api/authFetch";
+import Cookies from 'universal-cookie';
 
 /**
  * Hace la llamada al fetch tanto para el login como para el registro del usuario
@@ -14,13 +15,25 @@ import { authFetch } from "../api/authFetch";
  */
 export const useAuthFetch = (url, method, body, status) => {
 
+    const cookies = new Cookies();
+
     const { user, setUser } = useContext(UserContext);
 
     const fetchingUser = async () => {
 
         const fetch = await authFetch(url, method, body); // invocación del fetch
 
-        setUser(fetch); // sobreescribe el estado con el objeto que recibe del fetch
+        if(fetch.ok){
+
+            setUser(fetch); // sobreescribe el estado con el objeto que recibe del fetch
+
+            cookies.set('token', fetch.token);
+
+        } else {
+
+            setUser(fetch);
+
+        };
 
     };
 
