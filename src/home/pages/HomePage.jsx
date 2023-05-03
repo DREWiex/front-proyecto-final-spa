@@ -1,23 +1,25 @@
-import { NavBar } from "../../ui/NavBar";
+import { useContext } from "react";
+import { UserContext } from '../../context/UserContext';
+import { Contact, Reservations, Rooms } from '../components';
 
 export const HomePage = () => {
+
+    const { user } = useContext(UserContext);
 
 
     return (
 
         <>
 
-            <section id="rooms" className="relative red">
+            <header className="relative">
+                <p className="title">¡Hola, {user.first_name}!</p>
+            </header>
 
-            </section>
+            <Rooms />
 
-            <section id="reservations" className="relative blue border-top">
+            <Reservations />
 
-            </section>
-
-            <section id="contact" className="relative yellow border-top">
-
-            </section>
+            <Contact />
 
         </>
 

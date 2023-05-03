@@ -31,7 +31,7 @@ export const useAuthFetch = (url, method, body, status) => {
             setUser({  // sobreescribe el estado con el objeto que recibe del fetch
                     ...data, // spread del objeto 'data' que devuelve el fetch
                     ok,
-                    status: 'authenticated' // nueva propiedad para el manejo de las rutas
+                    status: 'authenticated' // nueva propiedad para manejar la protección de las rutas
             });
 
             cookies.set('token', token); // guarda el 'token' (String) del usuario en una cookie

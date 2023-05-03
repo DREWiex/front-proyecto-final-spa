@@ -4,7 +4,7 @@ export const useForm = (initialState) => {
 
     const [ form, setForm ] = useState(initialState);
 
-    const [ body, setBody ] = useState({}); // 'email' y 'password' que se enviarán al fetch por argumento
+    const [ body, setBody ] = useState({});
 
     const [ sent, setSent ] = useState(false);
 
