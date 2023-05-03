@@ -18,7 +18,7 @@ export const NavBar = () => {
                     <button
                         onClick={() => { setToggle(!toggle) }}
                         className="nav-toggle"
-                        aria-label="Open menu"
+                        aria-label={toggle ? "Open menu" : "Close menu"}
                     >
                         <i id="btn-bars" className="fa-solid fa-bars"></i>
                     </button>
@@ -27,10 +27,10 @@ export const NavBar = () => {
                         toggle ? (
                             <ul>
                                 <li><Link href="#"> Mi perfil </Link> </li>
-                                <li><Link href="#"> Salas de estudio </Link> </li>
+                                <li><Link href="#"> Salas </Link> </li>
                                 <li> <Link href="#"> Reservas </Link> </li>
                                 <li> <Link href="#"> Contacto </Link> </li>
-                                <li> <Link href="#"> Cerrar sesión </Link> </li>
+                                <li> <Link href="#"> Logout </Link> </li>
                             </ul>
                         ) : (
                             <ul className='nav-menu_visible'>
@@ -42,8 +42,6 @@ export const NavBar = () => {
                             </ul>
                         )
                     }
-
-
 
                 </div>
 

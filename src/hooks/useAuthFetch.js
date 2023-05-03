@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../context/UserContext";
 import { authFetch } from "../api/authFetch";
 import Cookies from 'universal-cookie';
+import { setLocal } from '../helpers/localStorage';
 
 /**
  * Hace la llamada al fetch tanto para el login como para el registro del usuario
@@ -25,17 +26,21 @@ export const useAuthFetch = (url, method, body, status) => {
 
         if(fetch.ok){
 
-            const { data, token } = fetch;
+            const { ok, data, token } = fetch;
 
-            setUser(fetch); // sobreescribe el estado con el objeto que recibe del fetch
+            setUser({  // sobreescribe el estado con el objeto que recibe del fetch
+                    ...data, // spread del objeto 'data' que devuelve el fetch
+                    ok,
+                    status: 'authenticated' // nueva propiedad para el manejo de las rutas
+            });
 
-            cookies.set('token', token); // guarda el 'token' del usuario en una cookie
+            cookies.set('token', token); // guarda el 'token' (String) del usuario en una cookie
 
-            cookies.set('role', data.role); // guarda el 'role' del usuario en una cookie
+            setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
 
         } else {
 
-            setUser(fetch);
+            setUser(fetch); //? crear contexto Errors
 
         };
 

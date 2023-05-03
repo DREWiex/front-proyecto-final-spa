@@ -12,7 +12,7 @@ function App() {
     <>
 
     {
-      pathname == '/home' && <NavBar />
+      pathname === '/' && <NavBar />
     }
 
       <UserProvider>

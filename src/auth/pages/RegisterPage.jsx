@@ -20,7 +20,7 @@ export const RegisterPage = () => {
         <>
 
             {
-                sent && user.ok && <Navigate to='/home' /> // condicional: si 'ok' es true, redirige al home
+                sent && user.ok && <Navigate to='/' /> // condicional: si 'ok' es true, redirige al índex del usuario (de momento)
             }
 
             <div className='auth'>

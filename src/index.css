@@ -101,17 +101,16 @@ label{
     top: 70px;
     width: 100%;
     list-style: none;
-    background-color: var(--lightprimary);
-
+    background-color: var(--white);
     height: calc(100% - 70px);  /* calcula la altura total restándole el height del nav */
     overflow-y: auto; /* aparece el scroll en caso de ser necesario */
-
     left: 100%; /* el menú está fuera de pantalla (hacia la derecha) */
     transition: left 0.8s;
 }
 
 .navbar div ul li a{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    text-transform: uppercase;
     color: var(--dark);
 }
 
@@ -144,10 +143,12 @@ label{
 
 .auth form a:focus, .auth form a:hover{
     font-weight: 600;
+    transition: 0.5s;
 }
 
 .auth form a:active{
     font-weight: 700;
+    transition: 0.5s;
 }
 
 .auth form input{
@@ -286,18 +287,22 @@ label{
         overflow-y: auto;
         left: 0;
         transition: none; /* valor por defecto */
-        background-color: var(--dark);
+        background-color: var(--primary);
     }
 
-    a:focus, a:hover{
-        color: var(--light);
-        background-color: none;
-        transition: 0.3s;
-    }
-
-    li > a{
-        padding-right: 50px;
+    .navbar div ul li a{
+        font-size: 1rem !important;
         color: var(--white);
+    }
+
+    .navbar div ul li a:focus, .navbar div ul li a:hover{
+        font-weight: 600;
+        transition: 0.5s;
+    }
+
+    .navbar div ul li a:active{
+        font-weight: 700;
+        transition: 0.5s;
     }
   
 } /* 992px end */
