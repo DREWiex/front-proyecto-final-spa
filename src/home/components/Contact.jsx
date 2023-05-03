@@ -1,5 +1,10 @@
 import { useForm } from "../../hooks/useForm";
 
+/**
+ * Formulario de contacto
+ * @function Contact
+ * @returns 
+ */
 export const Contact = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
