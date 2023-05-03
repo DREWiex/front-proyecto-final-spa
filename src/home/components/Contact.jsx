@@ -9,9 +9,9 @@ export const Contact = () => {
 
         <>
 
-            <section className="relative border-top">
+            <section className="relative border-top contact">
 
-                <h2> Contacto </h2>
+                <h2 className="title primary"> Contacto </h2>
 
                 <form
                     onSubmit={handleSubmit}
@@ -41,6 +41,7 @@ export const Contact = () => {
                         name="issue"
                         onChange={handleChange}
                     >
+                        <option value=""> --Seleccione una opción-- </option>
                         <option value="information"> Información </option>
                         <option value="claim"> Reclamación </option>
                         <option value="suggest"> Sugerencia </option>
