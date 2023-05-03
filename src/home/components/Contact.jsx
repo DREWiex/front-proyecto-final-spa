@@ -1,4 +1,6 @@
 import { useForm } from "../../hooks/useForm";
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 /**
  * Formulario de contacto
@@ -8,6 +10,19 @@ import { useForm } from "../../hooks/useForm";
 export const Contact = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
+
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+    
+        emailjs.sendForm('contact_service', 'contact_form', form.current, 'TyYDeFfK92qKM4Gow')
+          .then((result) => {
+              console.log(result.text);
+          }, (error) => {
+              console.log(error.text);
+          });
+      };
 
 
     return (
@@ -19,7 +34,8 @@ export const Contact = () => {
                 <h2 className="title primary"> Contacto </h2>
 
                 <form
-                    onSubmit={handleSubmit}
+                    ref={form} onSubmit={sendEmail}
+                    // onSubmit={handleSubmit}
                 >
 
                     <label htmlFor="name"> Nombre: </label>
