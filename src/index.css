@@ -96,7 +96,7 @@ label{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: start;
     position: fixed;
     top: 70px;
     width: 100%;
@@ -106,7 +106,7 @@ label{
     height: calc(100% - 70px);  /* calcula la altura total restándole el height del nav */
     overflow-y: auto; /* aparece el scroll en caso de ser necesario */
 
-    left: 20%; /* el menú está fuera de pantalla (hacia la derecha) */
+    left: 100%; /* el menú está fuera de pantalla (hacia la derecha) */
     transition: left 0.8s;
 }
 
@@ -116,7 +116,7 @@ label{
 }
 
 .nav-menu_visible{
-    left: 10%; /* clase que aplicará la transición para que aparezca el nav-menu */
+    left: 30% !important; /* clase que aplicará la transición para que aparezca el nav-menu */
 }
 
 
@@ -256,7 +256,9 @@ label{
 
 @media screen and (min-width:768px) {
 
-
+    .nav-menu_visible{
+        left: 60% !important; /* clase que aplicará la transición para que aparezca el nav-menu */
+    }
   
 } /* 768px end */
   
