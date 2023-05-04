@@ -1,8 +1,8 @@
 import { useContext, useEffect } from "react";
-import { UserContext } from "../context/UserContext";
-import { authFetch } from "../api/authFetch";
+import { UserContext } from "../../context/UserContext";
+import { authFetch } from "../../api/authFetch";
 import Cookies from 'universal-cookie';
-import { setLocal } from '../helpers/localStorage';
+import { setLocal } from '../../helpers/localStorage';
 
 /**
  * Hace la llamada al fetch tanto para el login como para el registro del usuario

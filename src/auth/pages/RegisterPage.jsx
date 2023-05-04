@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import { useForm } from '../../hooks/useForm';
-import { useAuthFetch } from '../../hooks/useAuthFetch';
+import { useAuthFetch } from '../hooks/useAuthFetch';
 
 export const RegisterPage = () => {
 

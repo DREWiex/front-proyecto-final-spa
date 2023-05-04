@@ -49,6 +49,10 @@ a{
     color: var(--dark);
 }
 
+img{
+    width: 100%;
+}
+
 label{
     display: none !important;
 }
@@ -192,7 +196,15 @@ label{
 }
 
 
-/* FORMS AUTH *************************/
+/* ROOMS *************************/
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+/* FORM CONTACT *************************/
 
 .contact{
     display: flex;
@@ -261,6 +273,10 @@ label{
 
 .lora{
     font-family: 'Lora', serif;
+}
+
+.jc-space-around{
+    justify-content: space-around;
 }
 
 /*********** PARA BORRAR ***********/
@@ -340,6 +356,12 @@ label{
     .navbar div ul li a:active{
         font-weight: 700;
         transition: 0.5s;
+    }
+
+    /* ROOMS *************************/
+
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr);
     }
   
 } /* 992px end */
