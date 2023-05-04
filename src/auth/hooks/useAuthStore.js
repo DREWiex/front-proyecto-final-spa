@@ -18,7 +18,7 @@ export const useAuthStore = () => {
 
     const login = async (url, method, body) => {
 
-        dispatch(startLoadingAuth()); //! da error
+        dispatch(startLoadingAuth());
 
         try {
             
@@ -41,13 +41,21 @@ export const useAuthStore = () => {
     }; //!FUNC-LOGIN
 
 
+    const register = async (url, method, body) => {
+
+
+
+    }; //!FUNC-REGISTER
+
+
     return {
         user,
         role,
         error,
         isLoading,
 
-        login
+        login,
+        register
     };
 
 };

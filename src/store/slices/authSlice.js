@@ -5,7 +5,6 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState: {
         user: {},
-        role: undefined,
         error: undefined,
         isLoading: false
     },
@@ -16,7 +15,6 @@ export const authSlice = createSlice({
 
         authLogin: (state, { payload }) => {
             state.user = payload,
-            state.role = payload.role,
             state.error = undefined,
             state.isLoading = false
         },

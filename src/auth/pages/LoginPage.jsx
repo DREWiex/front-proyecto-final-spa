@@ -7,7 +7,7 @@ export const LoginPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { role, error, isLoading, login } = useAuthStore();
+    const { user, error, isLoading, login } = useAuthStore();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
@@ -23,11 +23,11 @@ export const LoginPage = () => {
         <>
 
             {
-                sent && role === 'user' && <Navigate to='/' />
+                sent && user.role === 'user' && <Navigate to='/' />
             }
 
             {
-                sent && role === 'admin' && <Navigate to='/dashboard-admin' />
+                sent && user.role === 'admin' && <Navigate to='/dashboard-admin' />
             }
 
             <div className='auth'>
