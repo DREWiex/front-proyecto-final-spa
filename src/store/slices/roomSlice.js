@@ -14,6 +14,10 @@ export const roomSlice = createSlice({
         setRoom: (state, { payload }) => {
             state.isLoading = false,
             state.room = payload
+        },
+        setRoomByID: (state, { payload }) => {
+            state.isLoading = true, // así no entra directamente en el map cuando vuelve al índex desde la RoomDetailPage
+            state.room = payload
         }
     }
 
@@ -21,5 +25,6 @@ export const roomSlice = createSlice({
 
 export const {
     startLoadingRoom,
-    setRoom
+    setRoom,
+    setRoomByID
 } = roomSlice.actions;

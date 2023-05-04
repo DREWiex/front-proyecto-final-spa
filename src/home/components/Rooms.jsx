@@ -8,8 +8,6 @@ export const Rooms = () => {
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms`;
 
-
-
     useEffect(() => {
 
         getRooms(url);
