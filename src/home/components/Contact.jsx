@@ -29,7 +29,7 @@ export const Contact = () => {
 
         <>
 
-            <section className="relative border-top contact">
+            <section id="contact" className="relative contact">
 
                 <h2 className="title primary"> Contacto </h2>
 

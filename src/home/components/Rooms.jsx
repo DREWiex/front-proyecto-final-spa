@@ -8,6 +8,8 @@ export const Rooms = () => {
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms`;
 
+
+
     useEffect(() => {
 
         getRooms(url);
@@ -19,7 +21,7 @@ export const Rooms = () => {
 
         <>
 
-            <section className="relative flex-column jc-space-around">
+            <section id="rooms" className="relative flex-column jc-space-around">
 
                 <h2 className="title primary"> Salas de estudio </h2>
 

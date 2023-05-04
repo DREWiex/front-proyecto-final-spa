@@ -10,10 +10,15 @@ export const HomePage = () => {
     return (
 
         <>
-
-            <header className="relative">
-                <p className="title">¡Hola, {user.first_name}!</p>
-            </header>
+            
+            <div className="relative flex-column">
+                <img
+                    src="https://res.cloudinary.com/dmxii9sz3/image/upload/v1683188301/pexels-lisa-fotios-1472841_nrfkoa.jpg"
+                    alt="Persona leyendo un libro mientras está sentada"
+                    title="Persona leyendo un libro mientras está sentada"
+                    className="cover"
+                />
+            </div>
 
             <Rooms />
 

@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRoomsStore } from '../hooks/useRoomsStore';
-import { Link } from 'react-router-dom';
+import { Link, useBeforeUnload } from 'react-router-dom';
 
 export const RoomDetailPage = () => {
 
-    const { room, isLoading, getRoomByID } = useRoomsStore();
+    const { room, getRoomByID } = useRoomsStore();
 
     const { id } = useParams();
 
@@ -29,7 +29,7 @@ export const RoomDetailPage = () => {
 
         <>
 
-            <div className='relative flex-column'>
+            <div id={room_id} className='relative flex-column'>
 
                 <Link to='/'> Volver </Link>
 

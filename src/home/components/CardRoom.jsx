@@ -13,15 +13,25 @@ export const CardRoom = (props) => {
   return (
 
     <article id={room_id}>
-      <div>
+
+      <div className='card-room-img'>
+
         <img src={photo} alt={room} title={room} />
+
       </div>
+
       <h3> {room} </h3>
+
       <p> {description} </p>
+
       <div>
+
         <Link to={`/room/${room_id}`}> Ver sala </Link>
+
         <Link to='#'> Reservar </Link>
+
       </div>
+
     </article>
 
   );

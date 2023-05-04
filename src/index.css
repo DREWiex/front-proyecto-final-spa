@@ -60,6 +60,21 @@ label{
 
 /* SELECTORES DE CLASE *************************/
 
+/* PORTADA *************************/
+
+.cover{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: calc(100vh - 70px);
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+
 /* NAV BAR *************************/
 
 .navbar{
@@ -271,6 +286,10 @@ label{
     color: var(--secondary);
 }
 
+.bg-ligthprimary{
+    background-color: var(--lightprimary);
+}
+
 .lora{
     font-family: 'Lora', serif;
 }
@@ -291,10 +310,6 @@ label{
 
 .yellow{
     background-color: yellow;
-}
-
-.border-top{
-    border-top: 3px solid black;
 }
 
 /*********** PARA BORRAR ***********/

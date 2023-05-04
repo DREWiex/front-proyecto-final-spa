@@ -6,7 +6,7 @@ export const Reservations = () => {
 
         <>
 
-            <section className="relative border-top">
+            <section id="reservations" className="relative bg-ligthprimary">
                 Reservations
             </section>
 

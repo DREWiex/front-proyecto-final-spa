@@ -14,7 +14,7 @@ export const NavBar = () => {
 
                 <div>
 
-                    <Link href="/home" className="lora italic"> Studyverse </Link>
+                    <Link to="/" className="lora italic"> Studyverse </Link>
                     <button
                         onClick={() => { setToggle(!toggle) }}
                         className="nav-toggle"
@@ -26,19 +26,19 @@ export const NavBar = () => {
                     {
                         toggle ? (
                             <ul>
-                                <li><Link href="#"> Mi perfil </Link> </li>
-                                <li><Link href="#"> Salas </Link> </li>
-                                <li> <Link href="#"> Reservas </Link> </li>
-                                <li> <Link href="#"> Contacto </Link> </li>
-                                <li> <Link href="#"> Logout </Link> </li>
+                                <li><Link to="#"> Mi perfil </Link> </li>
+                                <li><Link to="#"> Salas </Link> </li>
+                                <li> <Link to="#"> Reservas </Link> </li>
+                                <li> <Link to="#"> Contacto </Link> </li>
+                                <li> <Link to="#"> Logout </Link> </li>
                             </ul>
                         ) : (
                             <ul className='nav-menu_visible'>
-                                <li><Link href="#"> Mi perfil </Link> </li>
-                                <li><Link href="#"> Salas de estudio </Link> </li>
-                                <li> <Link href="#"> Reservas </Link> </li>
-                                <li> <Link href="#"> Contacto </Link> </li>
-                                <li> <Link href="#"> Cerrar sesión </Link> </li>
+                                <li><Link to="#"> Mi perfil </Link> </li>
+                                <li><Link to="#"> Salas de estudio </Link> </li>
+                                <li> <Link to="#"> Reservas </Link> </li>
+                                <li> <Link to="#"> Contacto </Link> </li>
+                                <li> <Link to="#"> Cerrar sesión </Link> </li>
                             </ul>
                         )
                     }
