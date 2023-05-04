@@ -2,6 +2,7 @@ import { Link, Navigate } from 'react-router-dom';
 import { useForm } from "../../hooks/useForm";
 import { useEffect } from 'react';
 import { useAuthStore } from '../hooks/useAuthStore';
+import { Errors } from '../components/Errors';
 
 export const LoginPage = () => {
 
@@ -16,6 +17,8 @@ export const LoginPage = () => {
         sent && login(url, 'POST', body); // entra en el 'useEffect', pero no invoca al fetch hasta que no se hace click en el submit y haya un cambio en 'body'
 
     }, [body]);
+
+    console.log(error);
 
 
     return (
@@ -49,6 +52,12 @@ export const LoginPage = () => {
                     {
                         isLoading && <p> Cargando… </p>
 
+                    }
+
+                    {
+                        error && error.map(item => (
+                            <Errors key={item} {...item}/>
+                        ))
                     }
 
                     <label htmlFor="email"> E-mail </label>
