@@ -8,6 +8,7 @@ export const useRoomsStore = () => {
 
     const dispatch = useDispatch();
 
+
     const getRooms = async (url) => {
 
         dispatch(startLoadingRoom());
@@ -24,13 +25,34 @@ export const useRoomsStore = () => {
 
         };
 
-    };
+    }; //!FUNC-GETROOMS
+
+    
+    const getRoomByID = async (url) => {
+
+        dispatch(startLoadingRoom());
+
+        try {
+            
+            const { data } = await authFetch(url);
+
+            dispatch(setRoom(data));
+
+        } catch (error) {
+            
+            throw error;
+
+        };
+
+    }; //!FUNC-GETROOMBYID
+
 
     return {
         room,
         isLoading,
 
-        getRooms
+        getRooms,
+        getRoomByID
     };
 
 };

@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { DashboardPage } from '../admin/pages/DashboardPage';
-import { HomePage } from '../home/pages/HomePage';
 import { LoginPage, RegisterPage } from '../auth/pages';
+import { HomePage, RoomDetailPage } from '../home/pages';
 
 export const AppRouter = () => {
 
@@ -14,6 +14,7 @@ export const AppRouter = () => {
       <Route path='register' element={<RegisterPage />} />
 
       <Route path='/' element={<HomePage />} />
+      <Route path='/room/:id' element={<RoomDetailPage />} />
 
       <Route path={'/*'} element={<Navigate to='/' />} />
 

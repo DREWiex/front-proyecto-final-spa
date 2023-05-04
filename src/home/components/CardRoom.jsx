@@ -12,14 +12,17 @@ export const CardRoom = (props) => {
 
   return (
 
-      <article id={room_id}>
-        <div>
-          <img src={photo} alt={room} title={room} />
-        </div>
-        <h3> {room} </h3>
-        <p> {description} </p>
+    <article id={room_id}>
+      <div>
+        <img src={photo} alt={room} title={room} />
+      </div>
+      <h3> {room} </h3>
+      <p> {description} </p>
+      <div>
         <Link to={`/room/${room_id}`}> Ver sala </Link>
-      </article>
+        <Link to='#'> Reservar </Link>
+      </div>
+    </article>
 
   );
 
