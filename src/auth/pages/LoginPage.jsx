@@ -1,27 +1,36 @@
 import { Link, Navigate } from 'react-router-dom';
 import { useForm } from "../../hooks/useForm";
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../../context/UserContext';
 import { useAuthFetch } from '../hooks/useAuthFetch';
+import { useAuthStore } from '../hooks/useAuthStore';
 
 export const LoginPage = () => {
 
-    const { user } = useContext(UserContext);
+    // const { user } = useContext(UserContext);
+
+    const { user, role, error, isLoading, login } = useAuthStore();
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
-    useAuthFetch(url, 'POST', body, sent);
+    // useAuthFetch(url, 'POST', body, sent);
+
+    useEffect(() => {
+
+        sent && login(url, 'POST', body); // entra en el 'useEffect', pero no invoca al fetch hasta que no se hace click en el submit y haya un cambio en 'body'
+
+    }, [body]);
 
 
     return (
 
         <>
 
-            {
+            {/* {
                 sent && user.ok && <Navigate to='/' /> // condicional: si 'ok' es true, redirige al índex del user (de momento)
-            }
+            } */}
 
             <div className='auth'>
 

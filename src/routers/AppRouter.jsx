@@ -16,6 +16,8 @@ export const AppRouter = () => {
       <Route path='/' element={<HomePage />} />
       <Route path='/room/:id' element={<RoomDetailPage />} />
 
+      <Route path='dashboard-admin' element={<DashboardPage />} />
+
       <Route path={'/*'} element={<Navigate to='/' />} />
 
 

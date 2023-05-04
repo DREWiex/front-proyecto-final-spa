@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { roomSlice } from './roomSlice';
 
 export const authSlice = createSlice({
 
@@ -16,10 +15,10 @@ export const authSlice = createSlice({
         },
 
         authLogin: (state, { payload }) => {
-            state.user = payload.user,
+            state.user = payload,
             state.role = payload.role,
             state.error = undefined,
-            isLoading = false
+            state.isLoading = false
         },
 
 
@@ -30,4 +29,4 @@ export const authSlice = createSlice({
 export const {
     startLoadingAuth,
     authLogin
-} = roomSlice.actions;
+} = authSlice.actions;
