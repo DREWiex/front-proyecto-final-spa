@@ -1,21 +1,15 @@
 import { Link, Navigate } from 'react-router-dom';
 import { useForm } from "../../hooks/useForm";
-import { useContext, useEffect } from 'react';
-import { UserContext } from '../../context/UserContext';
-import { useAuthFetch } from '../hooks/useAuthFetch';
+import { useEffect } from 'react';
 import { useAuthStore } from '../hooks/useAuthStore';
 
 export const LoginPage = () => {
 
-    // const { user } = useContext(UserContext);
-
-    const { user, role, error, isLoading, login } = useAuthStore();
-
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
+    const { role, error, isLoading, login } = useAuthStore();
 
-    // useAuthFetch(url, 'POST', body, sent);
+    const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
     useEffect(() => {
 
@@ -28,9 +22,13 @@ export const LoginPage = () => {
 
         <>
 
-            {/* {
-                sent && user.ok && <Navigate to='/' /> // condicional: si 'ok' es true, redirige al índex del user (de momento)
-            } */}
+            {
+                sent && role === 'user' && <Navigate to='/' />
+            }
+
+            {
+                sent && role === 'admin' && <Navigate to='/dashboard-admin' />
+            }
 
             <div className='auth'>
 
@@ -48,6 +46,10 @@ export const LoginPage = () => {
 
                     <Link to='/register' className="secondary"> Crear cuenta </Link>
 
+                    {
+                        isLoading && <p> Cargando… </p>
+
+                    }
 
                     <label htmlFor="email"> E-mail </label>
                     <input
