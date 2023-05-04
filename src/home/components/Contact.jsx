@@ -16,7 +16,7 @@ export const Contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
     
-        emailjs.sendForm('contact_service', 'contact_form', form.current, 'TyYDeFfK92qKM4Gow')
+        emailjs.sendForm('contact_service', 'contact_form', form.current, import.meta.env.VITE_PUBLIC_KEY)
           .then((result) => {
               console.log(result.text);
           }, (error) => {
@@ -81,7 +81,7 @@ export const Contact = () => {
                     <input
                         type="submit"
                         className="submit"
-                        value={sent ? 'Enviado' : 'Enviar'}
+                        value={sent ? 'Enviado' : 'Enviar'} // no está haciendo nada (de momento)
                         disabled={sent}
                     />
 

@@ -10,7 +10,7 @@ export const RegisterPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const url = 'http://localhost:3000/api/v1/users';
+    const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/users`;
 
     useAuthFetch(url, 'POST', body, sent);
 

@@ -320,6 +320,7 @@ label{
         position: static;
         top: 0;
         height: 100%;
+        margin-right: 10px;
         overflow-y: auto;
         left: 0;
         transition: none; /* valor por defecto */

@@ -10,7 +10,7 @@ export const LoginPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const url = 'http://localhost:3000/auth/login';
+    const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
     useAuthFetch(url, 'POST', body, sent);
 
