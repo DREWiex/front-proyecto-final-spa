@@ -34,7 +34,12 @@ export const useAuthStore = () => {
 
                 const { data, token } = response;
 
-                setCookies('token', token); // guarda el 'token' (String) del usuario en una cookie
+                setCookies('token', token, { // guarda el 'token' (String) del usuario en una cookie
+                    path: '/',
+                    maxAge: 60 * 60 * 24, // expiración: 1 día
+                    secure: true,
+                    sameSite: 'lax'
+                }); 
     
                 setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
     
