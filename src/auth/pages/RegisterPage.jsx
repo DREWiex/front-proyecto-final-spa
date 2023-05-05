@@ -56,9 +56,7 @@ export const RegisterPage = () => {
                     }
 
                     {
-                        error && error.map(item => (
-                            <Errors key={item} {...item} />
-                        ))
+                        error && <p> {error} </p> //! pendiente: componente y estilos
                     }
 
                     <label htmlFor="first_name"> Nombre </label>
@@ -116,7 +114,7 @@ export const RegisterPage = () => {
                         type="submit"
                         value="Crear cuenta"
                         disabled={sent && !error} // si se envían los datos y hay errores, no se deshabilita
-                     />
+                    />
 
                 </form>
 

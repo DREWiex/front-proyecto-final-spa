@@ -42,9 +42,9 @@ export const useAuthStore = () => {
 
             } else {
 
-                const { error } = response;
+                const { error } = response; // destructuración de la propiedad 'error' del objeto que devuelve el fetch
 
-                throw error;
+                throw error; // se envía el array con los errores al catch
 
             };
 

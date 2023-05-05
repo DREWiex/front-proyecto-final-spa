@@ -59,10 +59,7 @@ export const LoginPage = () => {
                     }
 
                     {
-                        
-                        error && error.map(item => (
-                            <Errors error={item} key={item} />
-                        ))
+                        error && <p> {error} </p> //! pendiente: componente y estilos
                     }
 
                     <label htmlFor="email"> E-mail </label>
