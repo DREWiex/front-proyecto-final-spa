@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { authLogin, clearError, errorAuth, onLogout, startLoadingAuth } from "../../store/slices";
+import { authError, onAuth, onLogout, setError, startLoadingAuth } from "../../store/slices";
 import { fetchData } from "../../api/fetch";
 import { clearLocal, getLocal, removeCookies, setCookies, setLocal } from '../../helpers'
 
@@ -38,7 +38,7 @@ export const useAuthStore = () => {
     
                 setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
     
-                dispatch(authLogin(data));
+                dispatch(onAuth(data));
 
             } else {
 
@@ -50,7 +50,7 @@ export const useAuthStore = () => {
 
         } catch (error) {
             
-            dispatch(errorAuth(error));
+            dispatch(authError(error));
 
         };
 
@@ -76,14 +76,14 @@ export const useAuthStore = () => {
 
         const data = getLocal('user');
 
-        dispatch(authLogin(data));
+        dispatch(onAuth(data));
 
     }; //!FUNC-CHECKROLE
 
 
-    const setError = () => {
+    const clearError = () => {
 
-        dispatch(clearError());
+        dispatch(setError());
 
     }; //!FUNC-SETERROR
 
@@ -96,7 +96,7 @@ export const useAuthStore = () => {
         auth,
         checkRole,
         logout,
-        setError
+        clearError
     };
 
 };
