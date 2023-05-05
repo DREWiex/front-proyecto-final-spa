@@ -2,8 +2,18 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { DashboardPage } from '../admin/pages/DashboardPage';
 import { LoginPage, RegisterPage } from '../auth/pages';
 import { HomePage, RoomDetailPage } from '../home/pages';
+import { useAuthStore } from '../auth/hooks/useAuthStore';
+import { useEffect } from 'react';
 
 export const AppRouter = () => {
+
+  const { user, checkRole } = useAuthStore();
+
+  useEffect(() => {
+
+    checkRole()
+
+  }, []);
 
 
   return (

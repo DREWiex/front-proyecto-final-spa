@@ -18,8 +18,6 @@ export const LoginPage = () => {
 
     }, [body]);
 
-    console.log(error);
-
 
     return (
 
@@ -56,7 +54,7 @@ export const LoginPage = () => {
 
                     {
                         error && error.map(item => (
-                            <Errors key={item} {...item}/>
+                            <Errors key={item} {...item} />
                         ))
                     }
 

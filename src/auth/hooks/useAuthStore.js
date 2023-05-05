@@ -2,13 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { authLogin, errorAuth, startLoadingAuth } from "../../store/slices";
 import { authFetch } from "../../api/authFetch";
 import Cookies from 'universal-cookie';
-import { setLocal } from '../../helpers/localStorage';
+import { getLocal, setLocal } from '../../helpers/localStorage';
 
 export const useAuthStore = () => {
 
     const {
         user,
-        role,
         error,
         isLoading
     } = useSelector(state => state.auth);
@@ -60,14 +59,25 @@ export const useAuthStore = () => {
     }; //!FUNC-REGISTER
 
 
+    const checkRole = () => {
+
+        dispatch(startLoadingAuth());
+
+        const data = getLocal('user');
+
+        dispatch(authLogin(data));
+
+    }; //!FUNC-CHECKROLE
+
+
     return {
         user,
-        role,
         error,
         isLoading,
 
         login,
-        register
+        register,
+        checkRole
     };
 
 };
