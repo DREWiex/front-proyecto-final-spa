@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { authLogin, errorAuth, onLogout, startLoadingAuth } from "../../store/slices";
+import { authLogin, clearError, errorAuth, onLogout, startLoadingAuth } from "../../store/slices";
 import { authFetch } from "../../api/authFetch";
 import { clearLocal, getLocal, removeCookies, setCookies, setLocal } from '../../helpers'
 
@@ -14,6 +14,14 @@ export const useAuthStore = () => {
     const dispatch = useDispatch();
 
 
+    /**
+     * Gestionar tanto el login como el registro de usuarios.
+     * @function auth
+     * @async
+     * @param {String} url URL que recibe el fetch.
+     * @param {String} method Método que recibe el fetch
+     * @param {Object} body Objeto que recibe el fetch
+     */
     const auth = async (url, method, body) => {
 
         dispatch(startLoadingAuth());
@@ -46,43 +54,7 @@ export const useAuthStore = () => {
 
         };
 
-    }; //!FUNC-LOGIN
-
-
-    // const register = async (url, method, body) => {
-
-    //     dispatch(startLoadingAuth());
-
-    //     try {
-            
-    //         const fetch = await authFetch(url, method, body);
-
-    //         if(fetch.ok){
-
-    //             const { data, token } = fetch;
-
-    //             setCookies('token', token); // guarda el 'token' (String) del usuario en una cookie
-    
-    //             setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
-    
-    //             dispatch(authLogin(data));
-
-    //         } else {
-
-    //             const { errors } = fetch;
-
-    //             throw errors;
-
-    //         };
-
-    //     } catch (error) {
-            
-    //         dispatch(errorAuth(error));
-
-    //     };
-
-
-    // }; //!FUNC-REGISTER
+    }; //!FUNC-AUTH
 
 
     const logout = () => {
@@ -109,7 +81,11 @@ export const useAuthStore = () => {
     }; //!FUNC-CHECKROLE
 
 
-    //! CREAR FUNCIÓN QUE LIMPIE LOS ERRORES
+    const setError = () => {
+
+        dispatch(clearError());
+
+    }; //!FUNC-
 
 
     return {
@@ -119,7 +95,8 @@ export const useAuthStore = () => {
 
         auth,
         checkRole,
-        logout
+        logout,
+        setError
     };
 
 };

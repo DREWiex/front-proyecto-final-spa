@@ -8,7 +8,7 @@ export const RegisterPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { user, error, isLoading, auth } = useAuthStore();
+    const { user, error, isLoading, auth, setError } = useAuthStore();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/users`;
 
@@ -43,7 +43,7 @@ export const RegisterPage = () => {
 
                     <Link
                         to='/login'
-                        //onClick={'NUEVA FUNCIÓN'}
+                        onClick={setError}
                     >
                         <span className="material-symbols-rounded">
                             arrow_back

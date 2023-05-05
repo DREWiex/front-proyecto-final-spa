@@ -4,7 +4,9 @@ export const authSlice = createSlice({
 
     name: 'auth',
     initialState: {
-        user: {},
+        user: {
+            role: undefined // con la propiedad 'role' se gestionará la protección de rutas
+        },
         error: undefined,
         isLoading: false
     },
@@ -13,7 +15,7 @@ export const authSlice = createSlice({
             state.isLoading = true
         },
 
-        authLogin: (state, { payload }) => {
+        authLogin: (state, { payload }) => { // gestiona tanto el login como el registro de usuarios
             state.user = payload, // entra en el try y devuelve el objeto de la propiedad 'user'
             state.error = undefined, // no recibe la propiedad 'errors' en el try, por eso se mantiene el valor por defecto
             state.isLoading = false
@@ -31,6 +33,10 @@ export const authSlice = createSlice({
             state.isLoading = false
         },
 
+        clearError: (state) => {
+            state.error = undefined
+        }
+
     }
 
 });
@@ -39,5 +45,6 @@ export const {
     startLoadingAuth,
     authLogin,
     errorAuth,
-    onLogout
+    onLogout,
+    clearError
 } = authSlice.actions;

@@ -8,7 +8,7 @@ export const LoginPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { user, error, isLoading, auth } = useAuthStore();
+    const { user, error, isLoading, auth, setError } = useAuthStore();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
@@ -45,7 +45,13 @@ export const LoginPage = () => {
                     onSubmit={handleSubmit}
                 >
 
-                    <Link to='/register' className="secondary"> Crear cuenta </Link>
+                    <Link
+                        to='/register'
+                        className="secondary"
+                        onClick={setError}
+                    >
+                        Crear cuenta
+                    </Link>
 
                     {
                         isLoading && <p> Cargando… </p>
