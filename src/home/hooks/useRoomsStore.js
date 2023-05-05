@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setRoom, setRoomByID, startLoadingRoom } from "../../store/slices/roomSlice";
-import { authFetch } from '../../api/authFetch';
+import { fetchData } from "../../api/fetch";
 
 export const useRoomsStore = () => {
 
@@ -15,7 +15,7 @@ export const useRoomsStore = () => {
 
         try {
             
-            const { data } = await authFetch(url);
+            const { data } = await fetchData(url);
 
             dispatch(setRoom(data));
 
@@ -34,7 +34,7 @@ export const useRoomsStore = () => {
 
         try {
             
-            const { data } = await authFetch(url);
+            const { data } = await fetchData(url);
 
             dispatch(setRoomByID(data));
 

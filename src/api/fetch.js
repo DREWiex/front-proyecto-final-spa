@@ -1,5 +1,5 @@
 
-export const authFetch = async (url, method, body = {}) => {
+export const fetchData = async (url, method, body = {}) => {
 
     let options = {};
 

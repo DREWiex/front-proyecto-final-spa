@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import { UserContext } from '../../context/UserContext';
+import { useAuthStore } from '../../auth/hooks/useAuthStore';
 import { Contact, Reservations, Rooms } from '../components';
 
 export const HomePage = () => {
 
-    const { user } = useContext(UserContext);
+    const { user } = useAuthStore();
 
 
     return (
@@ -12,6 +11,7 @@ export const HomePage = () => {
         <>
             
             <div className="relative flex-column">
+                <p className='title'> ¡Hola, {user.first_name}!</p>
                 <img
                     src="https://res.cloudinary.com/dmxii9sz3/image/upload/v1683188301/pexels-lisa-fotios-1472841_nrfkoa.jpg"
                     alt="Persona leyendo un libro mientras está sentada"

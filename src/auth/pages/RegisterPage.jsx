@@ -102,7 +102,6 @@ export const RegisterPage = () => {
                         type="file"
                         id="image"
                         name="image"
-                        disabled={sent}
                     />
 
                     <input
@@ -116,8 +115,8 @@ export const RegisterPage = () => {
                         className='submit'
                         type="submit"
                         value="Crear cuenta"
-                        disabled={sent}
-                    />
+                        disabled={sent && !error} // si se envían los datos y hay errores, no se deshabilita
+                     />
 
                 </form>
 

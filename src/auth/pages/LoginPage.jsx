@@ -71,7 +71,6 @@ export const LoginPage = () => {
                         name="email"
                         placeholder="E-mail"
                         onChange={handleChange}
-                        disabled={sent}
                     />
 
                     <label htmlFor="password"> Password </label>
@@ -81,14 +80,13 @@ export const LoginPage = () => {
                         name="password"
                         placeholder="Contraseña"
                         onChange={handleChange}
-                        disabled={sent}
                     />
 
                     <input
                         className='submit'
                         type="submit"
                         value="Login"
-                        disabled={sent}
+                        disabled={sent && !error} // si se envían los datos y hay errores, no se deshabilita
                     />
 
                     <Link to='#'> Recuperar contraseña </Link>
