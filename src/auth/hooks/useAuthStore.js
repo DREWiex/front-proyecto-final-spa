@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { authError, onAuth, onLogout, setError, startLoadingAuth } from "../../store/slices";
 import { fetchData } from "../../api/fetch";
-import { clearLocal, getLocal, removeCookies, setCookies, setLocal } from '../../helpers'
+import { clearLocal, getLocal, removeCookies, setCookies, setLocal } from '../../helpers';
 
 export const useAuthStore = () => {
 
@@ -94,8 +94,8 @@ export const useAuthStore = () => {
         isLoading,
 
         auth,
-        checkRole,
         logout,
+        checkRole,
         clearError
     };
 
