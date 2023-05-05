@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { authLogin, errorAuth, onLogout, startLoadingAuth } from "../../store/slices";
 import { authFetch } from "../../api/authFetch";
-import Cookies from 'universal-cookie';
-import { clearLocal, getLocal, setLocal } from '../../helpers/localStorage';
+import { clearLocal, getLocal, removeCookies, setCookies, setLocal } from '../../helpers'
 
 export const useAuthStore = () => {
 
@@ -27,9 +26,7 @@ export const useAuthStore = () => {
 
                 const { data, token } = fetch;
 
-                const cookies = new Cookies();
-    
-                cookies.set('token', token); // guarda el 'token' (String) del usuario en una cookie
+                setCookies('token', token); // guarda el 'token' (String) del usuario en una cookie
     
                 setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
     
@@ -63,9 +60,7 @@ export const useAuthStore = () => {
 
         dispatch(startLoadingAuth());
 
-        const cookies = new Cookies();
-
-        cookies.remove('token'); // eliminar el token de la cookie
+        removeCookies('token'); // eliminar el token de la cookie
 
         clearLocal(); // eliminar el objeto del usuario del localStorage
 
