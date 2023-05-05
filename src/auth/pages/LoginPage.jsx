@@ -8,13 +8,13 @@ export const LoginPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { user, error, isLoading, login } = useAuthStore();
+    const { user, error, isLoading, auth } = useAuthStore();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
     useEffect(() => {
 
-        sent && login(url, 'POST', body); // entra en el 'useEffect', pero no invoca al fetch hasta que no se hace click en el submit y haya un cambio en 'body'
+        sent && auth(url, 'POST', body); // entra en el 'useEffect', pero no invoca al fetch hasta que no se envían los datos, es decir, hasta que no haya un cambio en el estado 'body'
 
     }, [body]);
 

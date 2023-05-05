@@ -14,7 +14,7 @@ export const useAuthStore = () => {
     const dispatch = useDispatch();
 
 
-    const login = async (url, method, body) => {
+    const auth = async (url, method, body) => {
 
         dispatch(startLoadingAuth());
 
@@ -49,11 +49,40 @@ export const useAuthStore = () => {
     }; //!FUNC-LOGIN
 
 
-    const register = async (url, method, body) => {
+    // const register = async (url, method, body) => {
+
+    //     dispatch(startLoadingAuth());
+
+    //     try {
+            
+    //         const fetch = await authFetch(url, method, body);
+
+    //         if(fetch.ok){
+
+    //             const { data, token } = fetch;
+
+    //             setCookies('token', token); // guarda el 'token' (String) del usuario en una cookie
+    
+    //             setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
+    
+    //             dispatch(authLogin(data));
+
+    //         } else {
+
+    //             const { errors } = fetch;
+
+    //             throw errors;
+
+    //         };
+
+    //     } catch (error) {
+            
+    //         dispatch(errorAuth(error));
+
+    //     };
 
 
-
-    }; //!FUNC-REGISTER
+    // }; //!FUNC-REGISTER
 
 
     const logout = () => {
@@ -80,13 +109,15 @@ export const useAuthStore = () => {
     }; //!FUNC-CHECKROLE
 
 
+    //! CREAR FUNCIÓN QUE LIMPIE LOS ERRORES
+
+
     return {
         user,
         error,
         isLoading,
 
-        login,
-        register,
+        auth,
         checkRole,
         logout
     };

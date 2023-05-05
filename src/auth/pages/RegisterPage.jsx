@@ -1,18 +1,22 @@
-import { useContext } from 'react';
+import { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import { UserContext } from '../../context/UserContext';
 import { useForm } from '../../hooks/useForm';
-import { useAuthFetch } from '../hooks/useAuthFetch';
+import { useAuthStore } from '../hooks/useAuthStore';
+import { Errors } from '../components/Errors';
 
 export const RegisterPage = () => {
 
-    const { user } = useContext(UserContext);
-
     const { body, sent, handleChange, handleSubmit } = useForm();
+
+    const { user, error, isLoading, auth } = useAuthStore();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/users`;
 
-    useAuthFetch(url, 'POST', body, sent);
+    useEffect(() => {
+
+        sent && auth(url, 'POST', body); // entra en el 'useEffect', pero no invoca al fetch hasta que no se envían los datos, es decir, hasta que no haya un cambio en el estado 'body'
+
+    }, [body]);
 
 
     return (
@@ -20,7 +24,7 @@ export const RegisterPage = () => {
         <>
 
             {
-                sent && user.ok && <Navigate to='/' /> // condicional: si 'ok' es true, redirige al índex del usuario (de momento)
+                sent && user.role == 'user' && <Navigate to='/' /> // condicional: si al enviar los datos no se recibe el objeto 'error' (undefined), redirige al índex del usuario
             }
 
             <div className='auth'>
@@ -37,11 +41,25 @@ export const RegisterPage = () => {
                     onSubmit={handleSubmit}
                 >
 
-                    <Link to='/login'>
+                    <Link
+                        to='/login'
+                        //onClick={'NUEVA FUNCIÓN'}
+                    >
                         <span className="material-symbols-rounded">
                             arrow_back
                         </span>
                     </Link>
+
+                    {
+                        isLoading && <p> Cargando… </p>
+
+                    }
+
+                    {
+                        error && error.map(item => (
+                            <Errors key={item} {...item} />
+                        ))
+                    }
 
                     <label htmlFor="first_name"> Nombre </label>
                     <input

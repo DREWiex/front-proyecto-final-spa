@@ -29,7 +29,7 @@ export const authSlice = createSlice({
             state.user = {},
             state.error = undefined,
             state.isLoading = false
-        }
+        },
 
     }
 
