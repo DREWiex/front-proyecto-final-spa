@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { authLogin, errorAuth, startLoadingAuth } from "../../store/slices";
+import { authLogin, errorAuth, onLogout, startLoadingAuth } from "../../store/slices";
 import { authFetch } from "../../api/authFetch";
 import Cookies from 'universal-cookie';
-import { getLocal, setLocal } from '../../helpers/localStorage';
+import { clearLocal, getLocal, setLocal } from '../../helpers/localStorage';
 
 export const useAuthStore = () => {
 
@@ -59,6 +59,21 @@ export const useAuthStore = () => {
     }; //!FUNC-REGISTER
 
 
+    const logout = () => {
+
+        dispatch(startLoadingAuth());
+
+        const cookies = new Cookies();
+
+        cookies.remove('token'); // eliminar el token de la cookie
+
+        clearLocal(); // eliminar el objeto del usuario del localStorage
+
+        dispatch(onLogout()); // restaurar los valores de las propiedades del 'initialSate'
+
+    }; //!FUNC-LOGOUT
+
+
     const checkRole = () => {
 
         dispatch(startLoadingAuth());
@@ -77,7 +92,8 @@ export const useAuthStore = () => {
 
         login,
         register,
-        checkRole
+        checkRole,
+        logout
     };
 
 };

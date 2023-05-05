@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthStore } from '../auth/hooks/useAuthStore';
 
 export const NavBar = () => {
 
     const [toggle, setToggle] = useState(true);
+
+    const { logout } = useAuthStore();
 
 
     return (
@@ -26,19 +29,29 @@ export const NavBar = () => {
                     {
                         toggle ? (
                             <ul>
-                                <li><Link to="#"> Mi perfil </Link> </li>
-                                <li><Link to="#"> Salas </Link> </li>
-                                <li> <Link to="#"> Reservas </Link> </li>
-                                <li> <Link to="#"> Contacto </Link> </li>
-                                <li> <Link to="#"> Logout </Link> </li>
+                                <li><Link to="#"> Mi perfil </Link></li>
+                                <li><Link to="#"> Salas </Link></li>
+                                <li><Link to="#"> Reservas </Link></li>
+                                <li><Link to="#"> Contacto </Link></li>
+                                <li><Link
+                                    to="/login"
+                                    onClick={logout}
+                                >
+                                    Logout
+                                </Link></li>
                             </ul>
                         ) : (
                             <ul className='nav-menu_visible'>
-                                <li><Link to="#"> Mi perfil </Link> </li>
-                                <li><Link to="#"> Salas de estudio </Link> </li>
-                                <li> <Link to="#"> Reservas </Link> </li>
-                                <li> <Link to="#"> Contacto </Link> </li>
-                                <li> <Link to="#"> Cerrar sesión </Link> </li>
+                                <li><Link to="#"> Mi perfil </Link></li>
+                                <li><Link to="#"> Salas </Link></li>
+                                <li><Link to="#"> Reservas </Link></li>
+                                <li><Link to="#"> Contacto </Link></li>
+                                <li><Link
+                                    to="/login"
+                                    onClick={logout}
+                                >
+                                    Logout
+                                </Link></li>
                             </ul>
                         )
                     }

@@ -23,6 +23,12 @@ export const authSlice = createSlice({
             state.user = {}, // no recibe la propiedad 'data' en el catch, por eso se mantiene el valor por defecto
             state.error = [ payload ], // entra en el catch y devuelve el objeto de la propiedad 'errors' // convierto en array para poder renderizar con map
             state.isLoading = false
+        },
+
+        onLogout: (state) => {
+            state.user = {},
+            state.error = undefined,
+            state.isLoading = false
         }
 
     }
@@ -32,5 +38,6 @@ export const authSlice = createSlice({
 export const {
     startLoadingAuth,
     authLogin,
-    errorAuth
+    errorAuth,
+    onLogout
 } = authSlice.actions;
