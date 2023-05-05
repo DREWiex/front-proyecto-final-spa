@@ -59,8 +59,9 @@ export const LoginPage = () => {
                     }
 
                     {
+                        
                         error && error.map(item => (
-                            <Errors key={item} {...item} />
+                            <Errors error={item} key={item} />
                         ))
                     }
 

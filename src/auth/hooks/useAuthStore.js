@@ -42,9 +42,9 @@ export const useAuthStore = () => {
 
             } else {
 
-                const { errors } = fetch;
+                const { error } = response;
 
-                throw errors;
+                throw error;
 
             };
 

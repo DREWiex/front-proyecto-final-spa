@@ -1,9 +1,14 @@
 
-export const Errors = (props) => {
+export const Errors = ({ error }) => {
 
-  
+  console.log(error);
+
 
   return (
-    <div>Errors</div>
-  )
-}
+    <>
+    <p> {error} </p>
+    <br />
+    </>
+  );
+
+};
