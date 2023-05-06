@@ -254,6 +254,35 @@ label{
 }
 
 
+/* DASHBOARD-ADMIN *************************/
+
+.dashboard-menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-menu div{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+}
+
+.dashboard-menu div > *{
+    padding: 5px 0;
+}
+
+.dashboard-menu div button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--secondary);
+}
+
+.dashboard-menu div button span{
+    font-size: 2.5rem;
+}
+
 /* REUTILIZABLES *************************/
 
 .relative{
@@ -298,7 +327,10 @@ label{
     justify-content: space-around;
 }
 
-/*********** PARA BORRAR ***********/
+.jc-space-evenly{
+    justify-content: space-evenly;
+}
+
 
 .red{
     background-color: red;
@@ -307,13 +339,6 @@ label{
 .blue{
     background-color: blue;
 }
-
-.yellow{
-    background-color: yellow;
-}
-
-/*********** PARA BORRAR ***********/
-
 
 
 /* ***************************************/
@@ -324,10 +349,23 @@ label{
 
 @media screen and (min-width:768px) {
 
+    /* NAV BAR *************************/
+
     .nav-menu_visible{
         left: 60% !important; /* clase que aplicará la transición para que aparezca el nav-menu */
     }
-  
+
+
+    /* DASHBOARD-ADMIN *************************/
+
+    .dashboard-menu{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 992px;
+        margin: 0 auto;
+    }
+
 } /* 768px end */
   
   

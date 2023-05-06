@@ -1,4 +1,3 @@
-import {useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { authError, onAuth, onLogout, setError, startLoadingAuth } from "../../store/slices";
 import { fetchData } from "../../api/fetch";
@@ -13,8 +12,6 @@ export const useAuthStore = () => {
     } = useSelector(state => state.auth);
 
     const dispatch = useDispatch();
-
-    const navigate = useNavigate();
 
 
     /**
@@ -45,8 +42,6 @@ export const useAuthStore = () => {
                 }); 
     
                 setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
-
-                data.role == 'user' ? navigate('/') : navigate('/dashboard-admin'); // según el role, se redirige la página al índex del 'user' (if) o del 'admin' (else)
     
                 dispatch(onAuth(data));
 
