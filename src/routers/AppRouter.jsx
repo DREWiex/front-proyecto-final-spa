@@ -4,14 +4,15 @@ import { LoginPage, RegisterPage } from '../auth/pages';
 import { HomePage, RoomDetailPage } from '../home/pages';
 import { useAuthStore } from '../auth/hooks/useAuthStore';
 import { useEffect } from 'react';
-import { UserRouter } from './UserRouter';
-import { AdminRouter } from './AdminRouter';
+import { AdminRouter, PublicRouter, UserRouter } from '../routers';
 
 export const AppRouter = () => {
 
   const { user, checkRole } = useAuthStore();
 
   useEffect(() => {
+
+    console.log('USE EFFECT')
 
     checkRole()
 
@@ -22,10 +23,18 @@ export const AppRouter = () => {
 
     <Routes>
 
+      {/* RUTAS PÚBLICAS */}
+
       <Route path='login' element={<LoginPage />} />
       <Route path='register' element={<RegisterPage />} />
 
-      <Route element={<UserRouter user={user} />}>
+      <Route path={'/*'} element={<Navigate to='/login' />} />
+
+      {/* RUTAS PRIVADAS */}
+
+      {/* USERS */}
+
+      <Route element={<UserRouter />}>
 
         <Route path='/' element={<HomePage />} />
         <Route path='room/:id' element={<RoomDetailPage />} />
@@ -34,25 +43,15 @@ export const AppRouter = () => {
 
       </Route>
 
-      <Route element={<AdminRouter user={user} />} >
+      {/* ADMIN */}
+
+      <Route element={<AdminRouter />} >
 
         <Route path='dashboard-admin' element={<DashboardPage />} />
 
         <Route path={'/*'} element={<Navigate to='/dashboard-admin' />} />
 
       </Route>
-
-      <Route path={'/*'} element={<Navigate to='/login' />} />
-
-      {/* <Route path='login' element={<LoginPage />} />
-      <Route path='register' element={<RegisterPage />} />
-
-      <Route path='/' element={<HomePage />} />
-      <Route path='room/:id' element={<RoomDetailPage />} />
-
-      <Route path='dashboard-admin' element={<DashboardPage />} />
-
-      <Route path={'/*'} element={<Navigate to='/login' />} /> */}
 
     </Routes>
 

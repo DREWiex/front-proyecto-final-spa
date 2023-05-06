@@ -1,14 +1,24 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuthStore } from '../auth/hooks/useAuthStore';
+import { useEffect } from 'react';
 
-export const UserRouter = ({ user }) => {
+export const UserRouter = () => {
 
-    if(!user.role || user.role != 'user') return <Navigate to='/login' /> // condicional: si 'user.role' es cualquiera menos 'user', redirige a la página del login
+    const { user, checkRole } = useAuthStore();
+
+    useEffect(() => {
+
+        checkRole()
+
+    }, []);
+
+    if(user.role != 'user') return <Navigate to='/login' /> // condicional: si el role no es 'user, redirige a la página del login
 
 
-  return (
+    return (
 
-    <Outlet /> // si 'user.role' es igual a 'user', entonces sí da acceeso a los 'children' envueltos en 'UserRouter'
+        <Outlet /> // si 'user.role' es igual a 'user', entonces sí da acceso a los 'children' envueltos en 'UserRouter'
 
-  );
+    );
 
 };
