@@ -8,15 +8,15 @@ import { AdminRouter, PublicRouter, UserRouter } from '../routers';
 
 export const AppRouter = () => {
 
-  const { pathname } = useLocation();
+  const { pathname } = useLocation(); // destructuración de la propiedad 'pathname' del hook 'useLocation' que recibe un string con el nombre de la ruta
 
-  const { user, checkRole } = useAuthStore();
+  const { user, checkRole } = useAuthStore(); // destructuración de las propiedades 'user' y 'checkRole' del hook 'useAuthStore'
 
   useEffect(() => {
 
-    checkRole()
+    checkRole() // obtener el objeto con los datos del usuario que está guardado en el localStorage y así pasárselo a través de 'user' como 'prop' a los distintos routers
 
-  }, [pathname]); // se ejecutará cada vez que la ruta cambie
+  }, [pathname]); // propiedad 'pathname' como dependencia del 'useEffect' para que este se ejecute cada vez que la ruta cambie
 
 
   return (
