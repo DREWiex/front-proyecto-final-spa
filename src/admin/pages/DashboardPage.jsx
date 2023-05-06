@@ -1,3 +1,4 @@
+import { NavBar } from "../../home/layouts";
 
 export const DashboardPage = () => {
 
@@ -6,7 +7,13 @@ export const DashboardPage = () => {
 
         <>
 
-            DashboardPage
+            <NavBar />
+
+            <main className="relative flex-column">
+
+                DashboardPage
+
+            </main>
 
         </>
 
