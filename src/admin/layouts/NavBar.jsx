@@ -17,7 +17,7 @@ export const NavBar = () => {
 
                 <div>
 
-                    <Link to="/" className="lora italic"> Studyverse </Link>
+                    <Link to="/dashboard-admin" className="lora italic"> Studyverse </Link>
                     <button
                         onClick={() => { setToggle(!toggle) }}
                         className="nav-toggle"

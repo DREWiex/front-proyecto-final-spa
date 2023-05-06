@@ -1,4 +1,4 @@
-import { Reservations, Rooms, Users } from "../components";
+import { Link } from 'react-router-dom';
 import { NavBar } from "../layouts/NavBar";
 
 export const DashboardPage = () => {
@@ -10,46 +10,40 @@ export const DashboardPage = () => {
 
             <NavBar />
 
-            <main className="relative flex-column">
+            <main className="relative dashboard">
 
                 <h1 className="title primary"> Dashboard </h1>
 
                 <div className="dashboard-menu">
 
                     <div>
-                        <button>
+                        <Link to='/dashboard-admin/users'>
                             <span className="material-symbols-rounded">
                                 group
                             </span>
-                        </button>
+                        </Link>
                         <h2> Usuarios </h2>
                     </div>
 
                     <div>
-                        <button>
+                        <Link to='/dashboard-admin/rooms'>
                             <span className="material-symbols-rounded">
                                 chair
                             </span>
-                        </button>
+                        </Link>
                         <h2> Salas de estudio </h2>
                     </div>
 
                     <div>
-                        <button>
+                        <Link to='/dashboard-admin/reservations'>
                             <span className="material-symbols-rounded">
                                 calendar_month
                             </span>
-                        </button>
+                        </Link>
                         <h2> Reservas </h2>
                     </div>
 
                 </div>
-
-                <Users />
-
-                <Rooms />
-
-                <Reservations />
 
             </main>
 

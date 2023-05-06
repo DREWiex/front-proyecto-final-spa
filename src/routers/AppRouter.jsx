@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import { DashboardPage } from '../admin/pages/DashboardPage';
+import { DashboardPage, ReservationsPage, RoomsPage, UsersPage } from '../admin/pages';
 import { LoginPage, RegisterPage } from '../auth/pages';
 import { HomePage, RoomDetailPage } from '../home/pages';
 import { useAuthStore } from '../auth/hooks/useAuthStore';
@@ -53,6 +53,9 @@ export const AppRouter = () => {
       <Route element={<AdminRouter user={user} />} >
 
         <Route path='dashboard-admin' element={<DashboardPage />} />
+        <Route path='dashboard-admin/users' element={<UsersPage />} />
+        <Route path='dashboard-admin/rooms' element={<RoomsPage />} />
+        <Route path='dashboard-admin/reservations' element={<ReservationsPage />} />
 
         <Route path={'/*'} element={<Navigate to='/dashboard-admin' />} />
 

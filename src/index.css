@@ -256,31 +256,38 @@ label{
 
 /* DASHBOARD-ADMIN *************************/
 
+.dashboard{
+    display: flex;
+    margin: 0 auto;
+}
+
+.dashboard > *{
+    margin: 10px 0;
+}
+
 .dashboard-menu{
     display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .dashboard-menu div{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 40px 0;
 }
 
 .dashboard-menu div > *{
+    align-content: center;
     padding: 5px 0;
 }
 
-.dashboard-menu div button{
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--secondary);
+.dashboard-menu div a{
+    width: fit-content;
 }
 
-.dashboard-menu div button span{
+.dashboard-menu div a span{
     font-size: 2.5rem;
+    color: var(--secondary);
 }
 
 /* REUTILIZABLES *************************/
@@ -357,6 +364,10 @@ label{
 
 
     /* DASHBOARD-ADMIN *************************/
+
+    .dashboard{
+        flex-direction: column;
+    }
 
     .dashboard-menu{
         flex-direction: row;
