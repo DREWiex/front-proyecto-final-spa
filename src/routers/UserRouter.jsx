@@ -1,18 +1,10 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuthStore } from '../auth/hooks/useAuthStore';
-import { useEffect } from 'react';
 
-export const UserRouter = () => {
+export const UserRouter = ({ user }) => {
 
-    const { user, checkRole } = useAuthStore();
+    if(user.role == 'admin') return <Navigate to='/dashboard-admin' />; // condicional: si el role no es 'user', sale de la función
 
-    useEffect(() => {
-
-        checkRole()
-
-    }, []);
-
-    if(user.role != 'user') return <Navigate to='/login' /> // condicional: si el role no es 'user, redirige a la página del login
+    if(user.role == undefined) return <Navigate to='/login' />;
 
 
     return (

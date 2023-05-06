@@ -80,13 +80,17 @@ export const useAuthStore = () => {
     }; //!FUNC-LOGOUT
 
 
+    /**
+     * Comprobar el role según los datos guardados en el localStorage.
+     * @function checkRole
+     */
     const checkRole = () => {
 
         dispatch(startLoadingAuth());
 
-        const data = getLocal('user');
+        const data = getLocal('user'); // obtener el objeto con los datos del usuario guardado en el localStorage
 
-        dispatch(onAuth(data));
+        dispatch(onAuth(data)); // asignar a las propiedades del slice los valores obtenidos del objeto del usuario
 
     }; //!FUNC-CHECKROLE
 

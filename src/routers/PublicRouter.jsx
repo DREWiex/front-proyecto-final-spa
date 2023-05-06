@@ -1,28 +1,15 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useEffect } from "react";
-import { useAuthStore } from "../auth/hooks/useAuthStore";
 
-export const PublicRouter = () => {
+export const PublicRouter = ({ user }) => {
 
-    const { user, checkRole } = useAuthStore();
+    if(user.role == 'user') return <Navigate to='/' />;
 
-    useEffect(() => {
-
-        checkRole()
-
-    }, []);
+    if(user.role == 'admin') return <Navigate to='/dashboard-admin' />;
 
 
     return (
 
-        <>
-
-            {
-                !user.role && <Outlet /> // condicional: si el role es 'undefined', entonces sí da acceeso a los 'children' envueltos en 'PublicRouter'
-            }
-
-        </>
-
+        <Outlet /> // condicional: si el role es 'undefined', entonces sí da acceso a los 'children' envueltos en 'PublicRouter'
 
     );
 
