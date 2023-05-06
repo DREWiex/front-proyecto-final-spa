@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { DashboardPage, ReservationsPage, RoomsPage, UsersPage } from '../admin/pages';
 import { LoginPage, RegisterPage } from '../auth/pages';
 import { HomePage, RoomDetailPage } from '../home/pages';
@@ -8,15 +8,13 @@ import { AdminRouter, PublicRouter, UserRouter } from '../routers';
 
 export const AppRouter = () => {
 
-  const { pathname } = useLocation(); // destructuración de la propiedad 'pathname' del hook 'useLocation' que recibe un string con el nombre de la ruta
-
   const { user, checkRole } = useAuthStore(); // destructuración de las propiedades 'user' y 'checkRole' del hook 'useAuthStore'
 
   useEffect(() => {
 
     checkRole() // obtener el objeto con los datos del usuario que está guardado en el localStorage y así pasárselo a través de 'user' como 'prop' a los distintos routers
 
-  }, [pathname]); // propiedad 'pathname' como dependencia del 'useEffect' para que este se ejecute cada vez que la ruta cambie
+  }, []);
 
 
   return (
