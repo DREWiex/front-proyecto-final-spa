@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuthStore } from '../hooks/useAuthStore';
 import { Errors } from '../components/Errors';
@@ -8,7 +8,7 @@ export const RegisterPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { user, error, isLoading, auth:register, clearError } = useAuthStore(); // 
+    const { error, isLoading, auth:register, clearError } = useAuthStore(); // 
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/users`;
 
@@ -22,10 +22,6 @@ export const RegisterPage = () => {
     return (
 
         <>
-
-            {
-                sent && user.role == 'user' && <Navigate to='/' /> // condicional: si al enviar los datos no se recibe el objeto 'error' (undefined), redirige al índex del usuario
-            }
 
             <div className='auth'>
 

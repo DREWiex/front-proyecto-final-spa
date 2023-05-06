@@ -12,8 +12,6 @@ export const AppRouter = () => {
 
   useEffect(() => {
 
-    console.log('USE EFFECT')
-
     checkRole()
 
   }, []);
