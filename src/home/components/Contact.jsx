@@ -19,8 +19,8 @@ export const Contact = () => {
         e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta del usuario
     
         emailjs.sendForm(
-            'contact_service',
-            'contact_form',
+            import.meta.env.VITE_SERVICE_ID,
+            import.meta.env.VITE_TEMPLATE_ID,
             form.current,
             import.meta.env.VITE_PUBLIC_KEY)
           .then((result) => {
@@ -50,7 +50,7 @@ export const Contact = () => {
                     <input
                         type="text"
                         id="name"
-                        name="user_name"
+                        name="name"
                         placeholder="Nombre"
                         onChange={handleChange}
                     />
@@ -59,7 +59,7 @@ export const Contact = () => {
                     <input
                         type="email"
                         id="email"
-                        name="user_email"
+                        name="email"
                         placeholder="E-mail"
                         onChange={handleChange}
                     />
@@ -72,16 +72,16 @@ export const Contact = () => {
                     >
                         <option value=""> --Seleccione una opción-- </option>
                         <option value="information"> Información </option>
-                        <option value="claim"> Reclamación </option>
-                        <option value="suggest"> Sugerencia </option>
+                        <option value="complaint"> Reclamación </option>
+                        <option value="suggestion"> Sugerencia </option>
                     </select>
 
                     <textarea
                         name="message"
-                        id="description"
+                        id="message"
                         cols="30"
                         rows="10"
-                        placeholder="Escriba aquí…"
+                        placeholder="Escriba el mensaje aquí."
                         onChange={handleChange}
                     >
                     </textarea>
