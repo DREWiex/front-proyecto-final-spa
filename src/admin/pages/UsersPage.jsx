@@ -37,14 +37,17 @@ export const UsersPage = () => {
 
         <section>
 
-          <button
-            className="dashboard-btn"
-            onClick={() => { setToggle(!toggle) }}
-          >
-            <span className="material-symbols-rounded secondary icon-font-size">
-              person_add
-            </span>
-          </button>
+          <div>
+            <button
+              className="dashboard-btn"
+              onClick={() => { setToggle(!toggle) }}
+            >
+              <span className="material-symbols-rounded secondary icon-font-size">
+                person_add
+              </span>
+            </button>
+            <p> Crear usuario </p>
+          </div>
 
           {/* <Link to='#'>
           <span className="material-symbols-rounded secondary icon-font-size">

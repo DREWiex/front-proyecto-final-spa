@@ -314,8 +314,11 @@ label{
 
 .dashboard-child > *{
     width: 90%;
-    padding-bottom: 20px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
+}
+
+.dashboard-child h1{
+    margin-top: 20px;
 }
 
 .dashboard-child section{
@@ -324,25 +327,56 @@ label{
     align-items: center;
 }
 
-.dashboard-child section table{
+.dashboard-child section div{
+    display: flex;
+    align-self: start;
+    margin-bottom: 5px;
+}
+
+.dashboard-child section div p{
+    font-weight: 600;
+}
+
+.dashboard-child section div > *{
+    align-self: center;
+    padding: 0 5px;
+}
+
+.dashboard-child table{
     text-align: center;
     width: 100%;
-    padding: 20px;
-    border: 1px solid var(--light);
     border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.dashboard-child th{
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    color: var(--white);
+    background-color: var(--primary);
+    border: 1px solid var(--dark);
+}
+
+.dashboard-child td{
+    font-size: 0.9rem;
+    padding: 5px;
+    border: 1px solid var(--dark);
 }
 
 .dashboard-child form{
     display: flex;
     flex-direction: column;
+    padding: 10px;
     margin: 10px auto;
 }
 
 .dashboard-child form > *{
-    padding: 5px;
+    padding: 8px;
     margin-bottom: 10px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     background-color: var(--light);
 }
 

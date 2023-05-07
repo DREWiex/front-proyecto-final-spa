@@ -61,7 +61,7 @@ export const AddUserForm = () => {
 
                 <label htmlFor="role">Role:</label>
                 <select name="role" id="role">
-                    <option value=""> --Seleccionar un role-- </option>
+                    <option value=""> --Seleccionar un rol-- </option>
                     <option value="1"> Admin </option>
                     <option value="2"> User </option>
                 </select>
