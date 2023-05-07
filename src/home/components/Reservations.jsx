@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useReservationsStore } from "../hooks/useReservationsStore";
-import { Link } from 'react-router-dom';
+import { ReservationForm } from "../components";
 
 export const Reservations = ({ user }) => {
 
@@ -21,33 +21,34 @@ export const Reservations = ({ user }) => {
 
             <section id="reservations" className="relative flex-column">
 
-                <h2 className="title primary"> Mis reservas </h2>
+                <h2 className="title primary"> Reservas </h2>
 
-                <div>
+                {error == undefined ? (
 
-                    {error == undefined ? (
-                        
-                            reservations.map(item => (
-                                <div key={item.reservation_id}>
-                                    <p> {item.room} </p>
-                                    <p> {item.reservation_date} </p>
-                                    <p> {item.start_time} </p>
-                                    <p> {item.end_time} </p>
-                                </div>
-                            ))
+                    reservations.map(item => (
+                        <div key={item.reservation_id}>
+                            <p> {item.room} </p>
+                            <p> {item.reservation_date} </p>
+                            <p> {item.start_time} </p>
+                            <p> {item.end_time} </p>
+                        </div>
+                    ))
 
-                        ) : (
+                ) : (
 
-                            <div>
-                                No hay reservas.
-                            </div>
+                    <p> No hay reservas. </p>
 
-                        )
-                    }
+                )
+                }
 
-                </div>
+                <button>
+                    <span className="material-symbols-rounded">
+                        event
+                    </span>
+                    Hacer reserva
+                </button>
 
-                <Link to='/reservation-form'> Hacer reserva </Link>
+                <ReservationForm user={user} />
 
             </section>
 
