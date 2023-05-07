@@ -15,8 +15,14 @@ export const Contact = () => {
 
     const sendEmail = (e) => {
         e.preventDefault();
+
+        e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta del usuario
     
-        emailjs.sendForm('contact_service', 'contact_form', form.current, import.meta.env.VITE_PUBLIC_KEY)
+        emailjs.sendForm(
+            'contact_service',
+            'contact_form',
+            form.current,
+            import.meta.env.VITE_PUBLIC_KEY)
           .then((result) => {
               console.log(result.text);
           }, (error) => {
@@ -38,11 +44,13 @@ export const Contact = () => {
                     // onSubmit={handleSubmit}
                 >
 
+                    <input type="hidden" name="contact_number" />
+
                     <label htmlFor="name"> Nombre: </label>
                     <input
                         type="text"
                         id="name"
-                        name="name"
+                        name="user_name"
                         placeholder="Nombre"
                         onChange={handleChange}
                     />
@@ -51,7 +59,7 @@ export const Contact = () => {
                     <input
                         type="email"
                         id="email"
-                        name="email"
+                        name="user_email"
                         placeholder="E-mail"
                         onChange={handleChange}
                     />
@@ -69,7 +77,7 @@ export const Contact = () => {
                     </select>
 
                     <textarea
-                        name="description"
+                        name="message"
                         id="description"
                         cols="30"
                         rows="10"
