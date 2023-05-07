@@ -32,11 +32,16 @@ export const fetchData = async (url, method, body = {}) => {
 
         const response = await request.json();
 
-        return response;
+        if(response.ok) return response;
+
+        else throw {
+            ok: false,
+            response
+        }
         
     } catch (error) {
 
-        console.log('FETCH ERROR:', error);
+        return error;
         
     };
 
