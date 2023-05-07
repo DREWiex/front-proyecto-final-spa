@@ -16,7 +16,7 @@ export const Contact = () => {
     const sendEmail = (e) => {
         e.preventDefault();
 
-        e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta del usuario
+        e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta enviada por el usuario
     
         emailjs.sendForm(
             import.meta.env.VITE_SERVICE_ID,
