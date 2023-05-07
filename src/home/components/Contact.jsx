@@ -4,10 +4,11 @@ import { useEmailJS } from "../hooks/useEmailJS";
 /**
  * Formulario desde el cual el usuario puede eniar su consulta, sugerencia o reclamación al admin.
  * @function Contact
+ * @returns El formulario que se renderizará en HomePage
  */
 export const Contact = () => {
 
-    const { body, sent, handleChange, handleSubmit } = useForm();
+    const { body, sent, handleChange, handleSubmit } = useForm(); // destructuración de todas las propiedades que devuelve el hook 'useForm'
 
     useEmailJS(body, sent); // hook que envía los datos del form una vez que 'sent' es true, es decir, que se haya presionado sobre el input submit
 
