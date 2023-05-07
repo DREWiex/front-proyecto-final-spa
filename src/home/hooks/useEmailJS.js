@@ -3,9 +3,9 @@ import { fetchData } from '../../api/fetch';
 
 export const useEmailJS = (data, sent) => {
 
-    const [contact, setContact] = useState();
-
     const url = 'https://api.emailjs.com/api/v1.0/email/send';
+
+    data.contact_number = Date.now(); // asigno un valor único a la consulta enviada por el usuario, ya que, por defecto, en el input del form es un string vacío
 
     const body = {
         service_id: import.meta.env.VITE_SERVICE_ID,
@@ -18,9 +18,7 @@ export const useEmailJS = (data, sent) => {
 
         try {
             
-            const fetch = await fetchData(url, 'POST', body);
-
-            setContact(fetch);
+            await fetchData(url, 'POST', body);
 
         } catch (error) {
             
@@ -36,7 +34,5 @@ export const useEmailJS = (data, sent) => {
         sent && fetchEmailJS()
 
     }, [data]);
-
-    return contact;
 
 };

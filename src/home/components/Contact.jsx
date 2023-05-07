@@ -12,26 +12,7 @@ export const Contact = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const cosa = useEmailJS(body, sent);
-
-    // const form = useRef();
-
-    // const sendEmail = (e) => {
-    //     e.preventDefault();
-
-    //     e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta enviada por el usuario
-    
-    //     emailjs.sendForm(
-    //         import.meta.env.VITE_SERVICE_ID,
-    //         import.meta.env.VITE_TEMPLATE_ID,
-    //         form.current,
-    //         import.meta.env.VITE_PUBLIC_KEY)
-    //       .then((result) => {
-    //           console.log(result.text);
-    //       }, (error) => {
-    //           console.log(error.text);
-    //       });
-    //   };
+    useEmailJS(body, sent); // hook que envía los datos del form una vez que 'sent' es true, es decir, que se haya presionado sobre el input submit
 
 
     return (
@@ -55,6 +36,7 @@ export const Contact = () => {
                         name="name"
                         placeholder="Nombre"
                         onChange={handleChange}
+                        disabled={sent}
                     />
 
                     <label htmlFor="email"> E-mail: </label>
@@ -64,6 +46,7 @@ export const Contact = () => {
                         name="email"
                         placeholder="E-mail"
                         onChange={handleChange}
+                        disabled={sent}
                     />
 
                     <label htmlFor="issue"> Motivo: </label>
@@ -71,6 +54,7 @@ export const Contact = () => {
                         id="issue"
                         name="issue"
                         onChange={handleChange}
+                        disabled={sent}
                     >
                         <option value=""> --Seleccione una opción-- </option>
                         <option value="information"> Información </option>
@@ -85,13 +69,14 @@ export const Contact = () => {
                         rows="10"
                         placeholder="Escriba el mensaje aquí."
                         onChange={handleChange}
+                        disabled={sent}
                     >
                     </textarea>
 
                     <input
                         type="submit"
                         className="submit"
-                        value={sent ? 'Enviado' : 'Enviar'} // no está haciendo nada (de momento)
+                        value={sent ? 'Enviado' : 'Enviar'}
                         disabled={sent}
                     />
 
