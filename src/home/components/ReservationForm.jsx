@@ -5,9 +5,9 @@ import { useRoomsStore } from "../hooks/useRoomsStore";
 
 export const ReservationForm = ({ user }) => {
 
-    const { body, sent, handleChange, handleSubmit } = useForm()
+    const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { room } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
+    const { room, isLoading } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
     const { error, addReservation } = useReservationsStore();
 
@@ -42,14 +42,23 @@ export const ReservationForm = ({ user }) => {
                     <option value=""> --Selecciona una opción-- </option>
 
                     {
-                        room.map(item => (
-                            <option
-                                value={item.room_id}
-                                key={item.room_id}
-                            >
-                                {item.room}
-                            </option>
-                        ))
+
+                        isLoading ? (
+
+                            console.log('Cargando…')
+
+                        ) : (
+
+                            room.map(item => (
+                                <option
+                                    value={item.room_id}
+                                    key={item.room_id}
+                                >
+                                    {item.room}
+                                </option>
+                            ))
+
+                        )
                     }
 
                 </select>
