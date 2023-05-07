@@ -1,12 +1,9 @@
 import { useForm } from "../../hooks/useForm";
-import { useEffect, useRef } from 'react';
-import emailjs from '@emailjs/browser';
 import { useEmailJS } from "../hooks/useEmailJS";
 
 /**
- * Formulario de contacto
+ * Formulario desde el cual el usuario puede eniar su consulta, sugerencia o reclamación al admin.
  * @function Contact
- * @returns 
  */
 export const Contact = () => {
 
@@ -23,11 +20,12 @@ export const Contact = () => {
 
                 <h2 className="title primary"> Contacto </h2>
 
-                <form
-                    onSubmit={handleSubmit}
-                >
+                <form onSubmit={handleSubmit}>
 
-                    <input type="hidden" name="contact_number" />
+                    <input
+                        type="hidden"
+                        name="contact_number"
+                    />
 
                     <label htmlFor="name"> Nombre: </label>
                     <input
