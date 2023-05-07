@@ -1,35 +1,53 @@
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import { useEffect } from "react";
+import { useReservationsStore } from "../hooks/useReservationsStore";
+import { Link } from 'react-router-dom';
 
-export const Reservations = () => {
+export const Reservations = ({ user }) => {
 
-    const events = [ //! aquí renderizaría las reservas guardadas en la base de datos
-        { title: 'Meeting', start: new Date() }
-    ]
+    const { reservations, error, getUserReservations } = useReservationsStore();
 
-    // function renderEventContent(eventInfo) {
-    //     return (
-    //         <>
-    //             <b>{eventInfo.timeText}</b>
-    //             <i>{eventInfo.event.title}</i>
-    //         </>
-    //     )
-    // }
+    const { user_id } = user;
+
+    useEffect(() => {
+
+        getUserReservations(user_id);
+
+    }, []);
+
 
     return (
 
         <>
 
-            <section id="reservations" className="relative bg-ligthprimary">
+            <section id="reservations" className="relative flex-column">
 
-                <h2 className='title primary'> Reservas </h2>
-                <FullCalendar
-                    plugins={[dayGridPlugin]}
-                    initialView='dayGridMonth'
-                    weekends={false}
-                    events={events}
-                    //eventContent={renderEventContent}
-                />
+                <h2 className="title primary"> Mis reservas </h2>
+
+                <div>
+
+                    {error == undefined ? (
+                        
+                            reservations.map(item => (
+                                <div key={item.reservation_id}>
+                                    <p> {item.room} </p>
+                                    <p> {item.reservation_date} </p>
+                                    <p> {item.start_time} </p>
+                                    <p> {item.end_time} </p>
+                                </div>
+                            ))
+
+                        ) : (
+
+                            <div>
+                                No hay reservas.
+                            </div>
+
+                        )
+                    }
+
+                </div>
+
+                <Link to='#'> Hacer reserva </Link>
 
             </section>
 

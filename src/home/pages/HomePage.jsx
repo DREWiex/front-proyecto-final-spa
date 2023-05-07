@@ -25,9 +25,9 @@ export const HomePage = () => {
                     />
                 </div>
 
-                <Rooms />
+                <Reservations user={user} />
 
-                <Reservations />
+                <Rooms />
 
                 <Contact />
 

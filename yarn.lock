@@ -1622,35 +1622,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fullcalendar/core@npm:^6.1.6":
-  version: 6.1.6
-  resolution: "@fullcalendar/core@npm:6.1.6"
-  dependencies:
-    preact: ~10.12.1
-  checksum: 72ec698bd226ea76cef106b9eecd4391a0434b13f9f02f663a84720d5b1e0ca8db21f1ace72278d22814cc4d1dfb1374f17532abde0ae99210bfd5ad7468e17f
-  languageName: node
-  linkType: hard
-
-"@fullcalendar/daygrid@npm:^6.1.6":
-  version: 6.1.6
-  resolution: "@fullcalendar/daygrid@npm:6.1.6"
-  peerDependencies:
-    "@fullcalendar/core": ~6.1.6
-  checksum: e7b60e359b620091c834fe3472761b9f4ebf3cd8d65a2ae56ead10dcb65a898c4c86770046dc3addff86002df9972a58395b7916502e8a4ec8d7b83a74b150b9
-  languageName: node
-  linkType: hard
-
-"@fullcalendar/react@npm:^6.1.6":
-  version: 6.1.6
-  resolution: "@fullcalendar/react@npm:6.1.6"
-  peerDependencies:
-    "@fullcalendar/core": ~6.1.6
-    react: ^16.7.0 || ^17 || ^18
-    react-dom: ^16.7.0 || ^17 || ^18
-  checksum: 06d729e240eb5a9bbd4159bec538396ceda58961dca7a3770c2f594b382c3b90cfb0f668e9329e8a89435faef8d412d29d20ff46cd08d8111313d361be54c861
-  languageName: node
-  linkType: hard
-
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -3800,9 +3771,6 @@ __metadata:
     "@babel/core": ^7.21.8
     "@babel/preset-env": ^7.21.5
     "@babel/preset-react": ^7.18.6
-    "@fullcalendar/core": ^6.1.6
-    "@fullcalendar/daygrid": ^6.1.6
-    "@fullcalendar/react": ^6.1.6
     "@reduxjs/toolkit": ^1.9.5
     "@testing-library/react": ^14.0.0
     "@types/jest": ^29.5.1
@@ -5883,13 +5851,6 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 8bb9d1b2ea6e694f8987d4f18c94617971b2b8d141602725fedcc2222fdc413b776a6e1b969a25d627d7b2681ca5aabb56f59e727ef94072e1b6ac8412105a2f
-  languageName: node
-  linkType: hard
-
-"preact@npm:~10.12.1":
-  version: 10.12.1
-  resolution: "preact@npm:10.12.1"
-  checksum: 0de99f477563ab7f94a0f964952ad216375973c0dcd9eb49881f8eb5effc5ed6948da062548c87d5bb0d82f1a1e516b649020e760eab3a0503dfdd8e64d34a26
   languageName: node
   linkType: hard
 
