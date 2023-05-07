@@ -39,9 +39,11 @@ export const useAuthStore = () => {
                     maxAge: 60 * 60 * 24, // expiración: 1 día
                     secure: true,
                     sameSite: 'lax'
-                }); 
+                });
+
+                const { avatar, first_name, last_name, role, user_id } = data; // destructuración del objeto 'data' con los datos "no sensibles" del usuario que se guardarán en el localStorage
     
-                setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
+                setLocal('user', { avatar, first_name, last_name, role, user_id }); // guardar el objeto con los datos "no sensible" del usuario en el localStorage
     
                 dispatch(onAuth(data));
 
