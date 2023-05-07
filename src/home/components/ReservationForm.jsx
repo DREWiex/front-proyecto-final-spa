@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useReservationsStore } from "../hooks/useReservationsStore";
+import { useRoomsStore } from "../hooks/useRoomsStore";
 
 export const ReservationForm = ({ user }) => {
 
     const { body, sent, handleChange, handleSubmit } = useForm()
+
+    const { room } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
     const { error, addReservation } = useReservationsStore();
 
@@ -30,8 +33,6 @@ export const ReservationForm = ({ user }) => {
                     onChange={handleChange}
                 />
 
-                {/* Las opciones del select tienen que ser dinámicas */}
-
                 <label htmlFor="room_id"> Sala de estudio: </label>
                 <select
                     name="room_id"
@@ -39,8 +40,18 @@ export const ReservationForm = ({ user }) => {
                     onChange={handleChange}
                 >
                     <option value=""> --Selecciona una opción-- </option>
-                    <option value="1"> Sala de estudio 1 </option>
-                    <option value="2"> Sala de estudio 2 </option>
+
+                    {
+                        room.map(item => (
+                            <option
+                                value={item.room_id}
+                                key={item.room_id}
+                            >
+                                {item.room}
+                            </option>
+                        ))
+                    }
+
                 </select>
 
                 <label htmlFor="reservation_date"> Fecha: </label>
