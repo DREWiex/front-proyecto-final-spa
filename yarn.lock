@@ -1426,13 +1426,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emailjs/browser@npm:^3.11.0":
-  version: 3.11.0
-  resolution: "@emailjs/browser@npm:3.11.0"
-  checksum: fdeb780f49ed5ee75ad2d197ae2fcc77c266dcffe1204b6450d01df7db2e9a17d12af97a460eaf33f777c569935aa83285c184d63c59c03387a2c326e90ba5e9
-  languageName: node
-  linkType: hard
-
 "@esbuild/android-arm64@npm:0.17.18":
   version: 0.17.18
   resolution: "@esbuild/android-arm64@npm:0.17.18"
@@ -3807,7 +3800,6 @@ __metadata:
     "@babel/core": ^7.21.8
     "@babel/preset-env": ^7.21.5
     "@babel/preset-react": ^7.18.6
-    "@emailjs/browser": ^3.11.0
     "@fullcalendar/core": ^6.1.6
     "@fullcalendar/daygrid": ^6.1.6
     "@fullcalendar/react": ^6.1.6

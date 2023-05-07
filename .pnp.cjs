@@ -31,7 +31,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.21.8"],\
             ["@babel/preset-env", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:7.21.5"],\
             ["@babel/preset-react", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:7.18.6"],\
-            ["@emailjs/browser", "npm:3.11.0"],\
             ["@fullcalendar/core", "npm:6.1.6"],\
             ["@fullcalendar/daygrid", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:6.1.6"],\
             ["@fullcalendar/react", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:6.1.6"],\
@@ -2685,15 +2684,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@bcoe-v8-coverage-npm-0.2.3-9e27b3c57e-850f930553.zip/node_modules/@bcoe/v8-coverage/",\
           "packageDependencies": [\
             ["@bcoe/v8-coverage", "npm:0.2.3"]\
-          ],\
-          "linkType": "HARD"\
-        }]\
-      ]],\
-      ["@emailjs/browser", [\
-        ["npm:3.11.0", {\
-          "packageLocation": "./.yarn/cache/@emailjs-browser-npm-3.11.0-3a580335bf-fdeb780f49.zip/node_modules/@emailjs/browser/",\
-          "packageDependencies": [\
-            ["@emailjs/browser", "npm:3.11.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -5548,7 +5538,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.21.8"],\
             ["@babel/preset-env", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:7.21.5"],\
             ["@babel/preset-react", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:7.18.6"],\
-            ["@emailjs/browser", "npm:3.11.0"],\
             ["@fullcalendar/core", "npm:6.1.6"],\
             ["@fullcalendar/daygrid", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:6.1.6"],\
             ["@fullcalendar/react", "virtual:1eb6f49516455e1c4317e66e194637f10927ea3a06fad3b34006259a9204b18a5376e0092c35d780da4df4c22d7d56120dec750c17c09eede00128ed6adc525c#npm:6.1.6"],\
