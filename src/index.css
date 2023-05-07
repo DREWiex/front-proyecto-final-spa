@@ -258,6 +258,8 @@ label{
 
 .dashboard{
     display: flex;
+    flex-direction: column;
+    max-height: 100vh;
     margin: 0 auto;
 }
 
@@ -274,18 +276,18 @@ label{
 
 .dashboard-menu{
     display: flex;
+    flex-direction: column;
 }
 
 .dashboard-menu div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 40px 0;
 }
 
 .dashboard-menu div > *{
     align-content: center;
-    padding: 5px 0;
+    padding: 10px 0;
 }
 
 .dashboard-menu div a span{
@@ -455,16 +457,12 @@ label{
 
     /* DASHBOARD-ADMIN *************************/
 
-    .dashboard{
-        flex-direction: column;
-    }
-
     .dashboard-menu{
         flex-direction: row;
         justify-content: space-around;
         width: 100%;
         max-width: 992px;
-        margin: 0 auto;
+        margin: 40px auto;
     }
 
 } /* 768px end */
