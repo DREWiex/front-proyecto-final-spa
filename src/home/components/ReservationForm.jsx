@@ -1,19 +1,33 @@
+import { useEffect } from "react";
+import { useForm } from "../../hooks/useForm";
+import { useReservationsStore } from "../hooks/useReservationsStore";
 
 export const ReservationForm = ({ user }) => {
 
+    const { body, sent, handleChange, handleSubmit } = useForm()
 
+    const { error, addReservation } = useReservationsStore();
+
+    useEffect(() => {
+
+        sent && addReservation(body);
+
+    }, [body]);
 
 
     return (
 
         <>
 
-            <form>
+            <form
+                onSubmit={handleSubmit}
+            >
 
                 <input
                     type="hidden"
                     name="user_id"
                     value={user.user_id}
+                    onChange={handleChange}
                 />
 
                 {/* Las opciones del select tienen que ser dinámicas */}
@@ -22,7 +36,7 @@ export const ReservationForm = ({ user }) => {
                 <select
                     name="room_id"
                     id="room_id"
-                    required
+                    onChange={handleChange}
                 >
                     <option value=""> --Selecciona una opción-- </option>
                     <option value="1"> Sala de estudio 1 </option>
@@ -34,7 +48,7 @@ export const ReservationForm = ({ user }) => {
                     type="date"
                     id="reservation_date"
                     name="reservation_date"
-                    required
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="start_time"> Hora de entrada: </label>
@@ -44,7 +58,7 @@ export const ReservationForm = ({ user }) => {
                     name="start_time"
                     min="09:00"
                     max="21:00"
-                    required
+                    onChange={handleChange}
                 />
 
                 <label htmlFor="end_time"> Hora de salida: </label>
@@ -54,7 +68,7 @@ export const ReservationForm = ({ user }) => {
                     name="end_time"
                     min="10:00"
                     max="22:00"
-                    required
+                    onChange={handleChange}
                 />
 
                 <input
@@ -65,7 +79,16 @@ export const ReservationForm = ({ user }) => {
 
             </form>
 
+            {
+                error && error.map(item => (
+                    <div key={item}>
+                        <p> {item} </p>
+                    </div>
+                ))
+            }
+
         </>
 
-    )
+    );
+
 };

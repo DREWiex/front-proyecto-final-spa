@@ -17,7 +17,7 @@ export const reservationsSlice = createSlice({
         reservationsError: (state, { payload }) => {
             state.reservations = [],
             state.error = payload
-        }
+        },
 
     }
 

@@ -43,11 +43,37 @@ export const useReservationsStore = () => {
     }; //!FUNC-GETUSERRESERVATIONS
 
 
+    const addReservation = async (body) => {
+
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations`;
+
+        try {
+            
+            const fetch = await fetchData(url, 'POST', body);
+
+            if(!fetch.ok){
+
+                const { error } = fetch;
+
+                throw error;
+
+            };
+
+        } catch (error) {
+            
+            dispatch(reservationsError(error));
+
+        };
+
+    }; //!FUNC-ADDRESERVATION
+
+
     return {
         reservations,
         error,
 
-        getUserReservations
+        getUserReservations,
+        addReservation
     };
 
 };
