@@ -1,28 +1,16 @@
 import { useForm } from "../../hooks/useForm";
-import { useRef } from 'react';
-import emailjs from '@emailjs/browser';
+import { useEmailJS } from "../hooks/useEmailJS";
 
 /**
- * Formulario de contacto
+ * Formulario desde el cual el usuario puede eniar su consulta, sugerencia o reclamación al admin.
  * @function Contact
- * @returns 
+ * @returns El formulario que se renderizará en HomePage
  */
 export const Contact = () => {
 
-    const { body, sent, handleChange, handleSubmit } = useForm();
+    const { body, sent, handleChange, handleSubmit } = useForm(); // destructuración de todas las propiedades que devuelve el hook 'useForm'
 
-    const form = useRef();
-
-    const sendEmail = (e) => {
-        e.preventDefault();
-    
-        emailjs.sendForm('contact_service', 'contact_form', form.current, import.meta.env.VITE_PUBLIC_KEY)
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-      };
+    useEmailJS(body, sent); // hook que envía los datos del form una vez que 'sent' es true, es decir, que se haya presionado sobre el input submit
 
 
     return (
@@ -33,10 +21,12 @@ export const Contact = () => {
 
                 <h2 className="title primary"> Contacto </h2>
 
-                <form
-                    ref={form} onSubmit={sendEmail}
-                    // onSubmit={handleSubmit}
-                >
+                <form onSubmit={handleSubmit}>
+
+                    <input
+                        type="hidden"
+                        name="contact_number"
+                    />
 
                     <label htmlFor="name"> Nombre: </label>
                     <input
@@ -45,6 +35,7 @@ export const Contact = () => {
                         name="name"
                         placeholder="Nombre"
                         onChange={handleChange}
+                        disabled={sent}
                     />
 
                     <label htmlFor="email"> E-mail: </label>
@@ -54,6 +45,7 @@ export const Contact = () => {
                         name="email"
                         placeholder="E-mail"
                         onChange={handleChange}
+                        disabled={sent}
                     />
 
                     <label htmlFor="issue"> Motivo: </label>
@@ -61,27 +53,29 @@ export const Contact = () => {
                         id="issue"
                         name="issue"
                         onChange={handleChange}
+                        disabled={sent}
                     >
                         <option value=""> --Seleccione una opción-- </option>
                         <option value="information"> Información </option>
-                        <option value="claim"> Reclamación </option>
-                        <option value="suggest"> Sugerencia </option>
+                        <option value="complaint"> Reclamación </option>
+                        <option value="suggestion"> Sugerencia </option>
                     </select>
 
                     <textarea
-                        name="description"
-                        id="description"
+                        name="message"
+                        id="message"
                         cols="30"
                         rows="10"
-                        placeholder="Escriba aquí…"
+                        placeholder="Escriba el mensaje aquí."
                         onChange={handleChange}
+                        disabled={sent}
                     >
                     </textarea>
 
                     <input
                         type="submit"
                         className="submit"
-                        value={sent ? 'Enviado' : 'Enviar'} // no está haciendo nada (de momento)
+                        value={sent ? 'Enviado' : 'Enviar'}
                         disabled={sent}
                     />
 

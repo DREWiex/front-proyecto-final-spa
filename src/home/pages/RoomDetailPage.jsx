@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useRoomsStore } from '../hooks/useRoomsStore';
-import { Link, useBeforeUnload } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { NavBar } from '../layouts';
 
 export const RoomDetailPage = () => {
 
@@ -23,27 +24,33 @@ export const RoomDetailPage = () => {
         description,
         photo
     } = room;
-    
+
 
     return (
 
         <>
 
-            <div id={room_id} className='relative flex-column'>
+            <NavBar />
 
-                <Link to='/'> Volver </Link>
+            <main className='relative flex-column'>
 
-                <div>
-                    <img src={photo} alt={room_name} title={room_name} />
+                <div id={room_id} className='flex-column'>
+
+                    <Link to='/'> Volver </Link>
+
+                    <div>
+                        <img src={photo} alt={room_name} title={room_name} />
+                    </div>
+
+                    <h2> {room_name} </h2>
+
+                    <p> {description} </p>
+
+                    <Link to='#'> Reservar sala </Link>
+
                 </div>
 
-                <h2> {room_name} </h2>
-
-                <p> {description} </p>
-
-                <Link to='#'> Reservar sala </Link>
-
-            </div>
+            </main>
 
         </>
 

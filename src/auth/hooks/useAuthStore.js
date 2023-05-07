@@ -34,7 +34,12 @@ export const useAuthStore = () => {
 
                 const { data, token } = response;
 
-                setCookies('token', token); // guarda el 'token' (String) del usuario en una cookie
+                setCookies('token', token, { // guarda el 'token' (String) del usuario en una cookie
+                    path: '/',
+                    maxAge: 60 * 60 * 24, // expiración: 1 día
+                    secure: true,
+                    sameSite: 'lax'
+                }); 
     
                 setLocal('user', data); // guarda el objeto con los datos del usuario en el localStorage
     
@@ -70,13 +75,17 @@ export const useAuthStore = () => {
     }; //!FUNC-LOGOUT
 
 
+    /**
+     * Comprobar el role según los datos guardados en el localStorage.
+     * @function checkRole
+     */
     const checkRole = () => {
 
         dispatch(startLoadingAuth());
 
-        const data = getLocal('user');
+        const data = getLocal('user'); // obtener el objeto con los datos del usuario guardado en el localStorage
 
-        dispatch(onAuth(data));
+        dispatch(onAuth(data)); // asignar a las propiedades del slice los valores obtenidos del objeto del usuario
 
     }; //!FUNC-CHECKROLE
 

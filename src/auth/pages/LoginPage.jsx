@@ -1,4 +1,4 @@
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from "../../hooks/useForm";
 import { useEffect } from 'react';
 import { useAuthStore } from '../hooks/useAuthStore';
@@ -8,7 +8,7 @@ export const LoginPage = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const { user, error, isLoading, auth:login, clearError } = useAuthStore();
+    const { error, isLoading, auth:login, clearError } = useAuthStore();
 
     const url = `${import.meta.env.VITE_API_URL_BASE}/auth/login`;
 
@@ -22,14 +22,6 @@ export const LoginPage = () => {
     return (
 
         <>
-
-            {
-                sent && user.role === 'user' && <Navigate to='/' />
-            }
-
-            {
-                sent && user.role === 'admin' && <Navigate to='/dashboard-admin' />
-            }
 
             <div className='auth'>
 
