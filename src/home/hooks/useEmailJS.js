@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
 import { fetchData } from '../../api/fetch';
 
-export const useEmailJS = (data) => {
+export const useEmailJS = (data, sent) => {
+
+    const [contact, setContact] = useState();
 
     const url = 'https://api.emailjs.com/api/v1.0/email/send';
 
@@ -11,16 +14,29 @@ export const useEmailJS = (data) => {
         template_params: data
     };
 
-    try {
+    const fetchEmailJS = async () => {
 
-        const fetch = fetchData(url, 'POST', body);
+        try {
+            
+            const fetch = await fetchData(url, 'POST', body);
 
-        console.log(fetch);
+            setContact(fetch);
 
-    } catch (error) {
-        
-        console.log(error);
+        } catch (error) {
+            
+            console.log(error);
 
-    };
+        };
+
+    }; //!FUNC-FETCHEMAILJS
+
+
+    useEffect(() => {
+
+        sent && fetchEmailJS()
+
+    }, [data]);
+
+    return contact;
 
 };

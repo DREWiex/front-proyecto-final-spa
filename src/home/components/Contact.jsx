@@ -1,6 +1,7 @@
 import { useForm } from "../../hooks/useForm";
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { useEmailJS } from "../hooks/useEmailJS";
 
 /**
  * Formulario de contacto
@@ -11,24 +12,26 @@ export const Contact = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm();
 
-    const form = useRef();
+    const cosa = useEmailJS(body, sent);
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    // const form = useRef();
 
-        e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta enviada por el usuario
+    // const sendEmail = (e) => {
+    //     e.preventDefault();
+
+    //     e.target.contact_number.value = Date.now(); // asigno un valor único a la consulta enviada por el usuario
     
-        emailjs.sendForm(
-            import.meta.env.VITE_SERVICE_ID,
-            import.meta.env.VITE_TEMPLATE_ID,
-            form.current,
-            import.meta.env.VITE_PUBLIC_KEY)
-          .then((result) => {
-              console.log(result.text);
-          }, (error) => {
-              console.log(error.text);
-          });
-      };
+    //     emailjs.sendForm(
+    //         import.meta.env.VITE_SERVICE_ID,
+    //         import.meta.env.VITE_TEMPLATE_ID,
+    //         form.current,
+    //         import.meta.env.VITE_PUBLIC_KEY)
+    //       .then((result) => {
+    //           console.log(result.text);
+    //       }, (error) => {
+    //           console.log(error.text);
+    //       });
+    //   };
 
 
     return (
@@ -40,8 +43,7 @@ export const Contact = () => {
                 <h2 className="title primary"> Contacto </h2>
 
                 <form
-                    ref={form} onSubmit={sendEmail}
-                    // onSubmit={handleSubmit}
+                    onSubmit={handleSubmit}
                 >
 
                     <input type="hidden" name="contact_number" />
