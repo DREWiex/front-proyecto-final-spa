@@ -1,20 +1,21 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useRoomsStore } from '../hooks/useRoomsStore';
-import { Link } from 'react-router-dom';
 import { NavBar } from '../layouts';
+import { ReservationForm } from '../components';
+import { useAuthStore } from '../../auth/hooks/useAuthStore';
 
 export const RoomDetailPage = () => {
 
     const { room, getRoomByID } = useRoomsStore();
 
-    const { id } = useParams();
+    const { user } = useAuthStore();
 
-    const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms/${id}`;
+    const { id } = useParams();
 
     useEffect(() => {
 
-        getRoomByID(url)
+        getRoomByID(id)
 
     }, [])
 
@@ -46,7 +47,14 @@ export const RoomDetailPage = () => {
 
                     <p> {description} </p>
 
-                    <Link to='#'> Reservar sala </Link>
+                    <button>
+                        <span className="material-symbols-rounded">
+                            event
+                        </span>
+                        Hacer reserva
+                    </button>
+
+                    <ReservationForm user={user}/>
 
                 </div>
 
