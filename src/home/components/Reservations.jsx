@@ -47,7 +47,7 @@ export const Reservations = ({ user }) => {
 
                 </div>
 
-                <Link to='#'> Hacer reserva </Link>
+                <Link to='/reservation-form'> Hacer reserva </Link>
 
             </section>
 
