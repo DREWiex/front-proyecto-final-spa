@@ -74,13 +74,9 @@ export const useReservationsStore = () => {
 
         try {
             
-            const fetch = fetchData(url, 'DELETE');
+            const fetch = await fetchData(url, 'DELETE');
 
-            if(fetch.ok){
-
-                getUserReservations(user_id);
-                
-            } else {
+            if(!fetch.ok){
 
                 const { error } = fetch;
 

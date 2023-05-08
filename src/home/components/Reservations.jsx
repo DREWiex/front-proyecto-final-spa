@@ -12,7 +12,7 @@ export const Reservations = ({ user }) => {
 
         getUserReservations(user_id);
 
-    }, []);
+    }, [reservations]);
 
 
     return (

@@ -10,9 +10,7 @@ export const ReservationsTable = ({ reservations }) => {
         <>
 
             <table>
-
                 <tbody>
-
                     {
                         reservations.map(item => (
                             <tr key={item.reservation_id}>
@@ -42,9 +40,7 @@ export const ReservationsTable = ({ reservations }) => {
                             </tr>
                         ))
                     }
-
                 </tbody>
-
             </table>
 
         </>
