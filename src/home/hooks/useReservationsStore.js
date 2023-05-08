@@ -103,13 +103,21 @@ export const useReservationsStore = () => {
     }; //!FUNC-DELETERESERVATION
 
 
+    const updateReservation = async () => {
+
+
+
+    }; //!FUNC-UPDATERESERVATION
+
+
     return {
         reservations,
         error,
 
         getUserReservations,
         addReservation,
-        deleteReservation
+        deleteReservation,
+        updateReservation
     };
 
 };
