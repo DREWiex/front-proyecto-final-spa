@@ -31,7 +31,7 @@ export const Reservations = ({ user }) => {
 
                         <div>
 
-                            <p> Tienes <span className="secondary">{reservations.length}</span> reservas. </p>
+                            <p> Tienes <span className="secondary"><strong>{reservations.length}</strong></span> reservas. </p>
 
                             <ReservationsTable toggle={toggle} setToggle={setToggle} />
 

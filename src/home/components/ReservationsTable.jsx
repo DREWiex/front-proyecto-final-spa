@@ -16,7 +16,6 @@ export const ReservationsTable = ({ toggle, setToggle }) => {
             <table>
 
                 <tbody>
-
                     {
                         reservations.map(item => (
                             <tr key={item.reservation_id}>
@@ -50,7 +49,6 @@ export const ReservationsTable = ({ toggle, setToggle }) => {
                             </tr>
                         ))
                     }
-
                 </tbody>
 
             </table>
