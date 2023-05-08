@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { ReservationForm } from "../components";
@@ -6,6 +6,8 @@ import { ReservationForm } from "../components";
 export const Reservations = ({ user }) => {
 
     const { reservations, error, getUserReservations } = useReservationsStore();
+
+    // const [toggle, setToggle] = useState(true);
 
     const { user_id } = user;
 
@@ -20,7 +22,7 @@ export const Reservations = ({ user }) => {
 
         <>
 
-            <section id="reservations" className="relative flex-column">
+            <section id="reservations" className="relative reservations">
 
                 <h2 className="title primary"> Reservas </h2>
 
@@ -30,23 +32,27 @@ export const Reservations = ({ user }) => {
 
                             <p> Tienes <span className="secondary">{reservations.length}</span> reservas. </p>
 
-                            <Link to='/my-reservations'> Ir a mis reservas </Link>
-
                         </div>
 
                     ) : (
 
-                        <p> No tienes reservas. </p>
+                        <div>
+
+                            <p> No tienes reservas. </p>
+
+                        </div>
 
                     )
                 }
 
-                <button>
+                {/* <button
+                    onClick={() => { setToggle(!toggle) }}
+                >
                     <span className="material-symbols-rounded">
                         event
                     </span>
                     Hacer reserva
-                </button>
+                </button> */}
 
                 <ReservationForm user={user} />
 

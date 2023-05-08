@@ -6,11 +6,13 @@ export const AddUserForm = () => {
 
     const { body, sent, handleChange, handleSubmit } = useForm()
 
-    const { user, error, isLoading, getUsers, addUser } = useUsersStore();
+    const { getUsers, addUser } = useUsersStore();
 
     useEffect(() => {
 
         sent && addUser(body);
+
+        sent && getUsers()
 
     }, [body]);
 
@@ -66,12 +68,12 @@ export const AddUserForm = () => {
                     <option value="2"> User </option>
                 </select>
 
-                <label htmlFor="image"> Foto de perfil </label>
+                {/* <label htmlFor="image"> Foto de perfil </label>
                 <input
                     type="file"
                     id="image"
                     name="image"
-                />
+                /> */}
 
                 <input
                     type="hidden"

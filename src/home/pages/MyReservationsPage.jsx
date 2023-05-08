@@ -8,8 +8,6 @@ export const MyReservationsPage = () => {
 
     const { reservations, error, getUserReservations } = useReservationsStore();
 
-    console.log(user)
-
 
     return (
 

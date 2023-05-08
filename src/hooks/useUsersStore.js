@@ -52,15 +52,7 @@ export const useUsersStore = () => {
             
             const fetch = fetchData(`${import.meta.env.VITE_API_URL_BASE}/api/v1/users`, 'POST', body); // crear un nuevo usuario
 
-            if(fetch.ok){
-
-                // const { data } = await fetchData(`${import.meta.env.VITE_API_URL_BASE}/api/v1/users`); // obtener el objeto de usuarios actualizado
-
-                // dispatch(setUsers(data));
-
-                console.log(fetch)
-
-            } else {
+            if(!fetch.ok){
 
                 const { error } = fetch;
 

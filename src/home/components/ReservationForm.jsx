@@ -9,11 +9,13 @@ export const ReservationForm = ({ user }) => {
 
     const { room, isLoading } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
-    const { error, addReservation } = useReservationsStore();
+    const { error, addReservation, getUserReservations } = useReservationsStore();
 
     useEffect(() => {
 
         sent && addReservation(body);
+
+        sent && getUserReservations()
 
     }, [body]);
 
@@ -94,7 +96,7 @@ export const ReservationForm = ({ user }) => {
                 <input
                     type="submit"
                     className="submit"
-                    value="Hacer reserva"
+                    value="Reservar"
                 />
 
             </form>
