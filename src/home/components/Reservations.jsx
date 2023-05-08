@@ -7,7 +7,7 @@ export const Reservations = ({ user }) => {
 
     const [toggle, setToggle] = useState(true);
 
-    const { reservations, reservation, error, getUserReservations } = useReservationsStore();
+    const { reservations, error, getUserReservations } = useReservationsStore();
 
     const { user_id } = user;
 

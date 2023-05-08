@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { useRoomsStore } from "../hooks/useRoomsStore";
@@ -8,7 +9,13 @@ export const ReservationUpdateForm = ({ user }) => {
 
     const { room, isLoading } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
-    const { reservation, error, loadingReservations } = useReservationsStore();
+    const { reservation, error, loadingReservations, updateReservation } = useReservationsStore();
+
+    useEffect(() => {
+
+        sent && updateReservation(body);
+
+    }, [body]);
 
 
     return (
@@ -26,6 +33,13 @@ export const ReservationUpdateForm = ({ user }) => {
                             type="hidden"
                             name="user_id"
                             value={user.user_id} // recibo el objeto 'user' por props
+                            onChange={handleChange}
+                        />
+
+                        <input
+                            type="hidden"
+                            name="reservation_id"
+                            value={reservation.reservation_id} // recibo el objeto 'user' por props
                             onChange={handleChange}
                         />
 

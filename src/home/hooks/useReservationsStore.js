@@ -138,19 +138,37 @@ export const useReservationsStore = () => {
     }; //!FUNC-DELETERESERVATION
 
 
-    const updateReservation = async (id) => {
+    const updateReservation = async (body) => {
 
-        // const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${id}`;
+        const { reservation_id, user_id } = body; // destructuración de las propiedades 'reservation_id' y 'user_id' del objeto 'body' recibido por argumento
 
-        // try {
+        console.log(reservation_id, user_id)
+
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${reservation_id}`;
+
+        try {
             
-        //     const fetch = await fetchData(url, 'PUT', )
+            const fetch = await fetchData(url, 'PUT', body);
 
-        // } catch (error) {
+            console.log(fetch);
+
+            if(!fetch.ok){
+
+                const { error } = fetch;
+
+                throw error;
             
+            } else {
 
+                getUserReservations(user_id); // una vez se cree la reserva, se actualiza el estado y se renderiza
 
-        // };
+            };
+
+        } catch (error) {
+            
+            dispatch(reservationsError(error));
+
+        };
 
     }; //!FUNC-UPDATERESERVATION
 
