@@ -9,6 +9,8 @@ Desarrollado por: **Andrés León**
 
 **Studyverse** es una aplicación que permite reservar salas de estudio a los alumnos.
 
+Despliegue hecho en Netlify: https://profound-starburst-ffb911.netlify.app
+
 ---
 
 ### Inicialización
