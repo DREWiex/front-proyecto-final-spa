@@ -1,12 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchData } from '../../api/fetch';
-import { reservationsError, userReservations } from '../../store/slices';
+import { reservationByID, reservationsError, userReservations, onLoadingReservations } from '../../store/slices';
 
 export const useReservationsStore = () => {
 
     const {
         reservations,
-        error
+        reservation, // estado que utilizo para el update
+        error,
+        loadingReservations
     } = useSelector(state => state.reservations);
 
     const dispatch = useDispatch();
@@ -41,6 +43,39 @@ export const useReservationsStore = () => {
         };
 
     }; //!FUNC-GETUSERRESERVATIONS
+
+
+    const getReservationByID = async (id) => {
+
+        dispatch(onLoadingReservations())
+
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${id}`;
+
+        try {
+            
+            const fetch = await fetchData(url);
+
+            if(fetch.ok){
+
+                const { data } = fetch;
+
+                dispatch(reservationByID(data));
+                
+            } else {
+
+                const { error } = fetch;
+
+                throw error;
+
+            };
+
+        } catch (error) {
+            
+            dispatch(reservationsError(error));
+
+        };
+
+    }; //!FUNC-GETRESERVATIONBYID
 
 
     const addReservation = async (body) => {
@@ -103,18 +138,31 @@ export const useReservationsStore = () => {
     }; //!FUNC-DELETERESERVATION
 
 
-    const updateReservation = async () => {
+    const updateReservation = async (id) => {
+
+        // const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${id}`;
+
+        // try {
+            
+        //     const fetch = await fetchData(url, 'PUT', )
+
+        // } catch (error) {
+            
 
 
+        // };
 
     }; //!FUNC-UPDATERESERVATION
 
 
     return {
         reservations,
+        reservation,
         error,
+        loadingReservations,
 
         getUserReservations,
+        getReservationByID,
         addReservation,
         deleteReservation,
         updateReservation

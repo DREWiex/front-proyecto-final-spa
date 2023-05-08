@@ -1,12 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { ReservationForm, ReservationsTable } from "../components";
+import { ReservationUpdateForm } from "./ReservationUpdateForm";
 
 export const Reservations = ({ user }) => {
 
-    const { reservations, error, getUserReservations } = useReservationsStore();
+    const [toggle, setToggle] = useState(true);
+
+    const { reservations, reservation, error, getUserReservations } = useReservationsStore();
 
     const { user_id } = user;
+
 
     useEffect(() => {
 
@@ -29,7 +33,7 @@ export const Reservations = ({ user }) => {
 
                             <p> Tienes <span className="secondary">{reservations.length}</span> reservas. </p>
 
-                            <ReservationsTable />
+                            <ReservationsTable toggle={toggle} setToggle={setToggle} />
 
                         </div>
 
@@ -44,7 +48,10 @@ export const Reservations = ({ user }) => {
                     )
                 }
 
-                <ReservationForm user={user} />
+                {
+                    toggle ? (<ReservationForm user={user} />) : (<ReservationUpdateForm user={user} />)
+                }
+
 
             </section>
 

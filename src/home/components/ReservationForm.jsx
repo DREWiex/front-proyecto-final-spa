@@ -9,13 +9,17 @@ export const ReservationForm = ({ user }) => {
 
     const { room, isLoading } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
-    const { error, addReservation } = useReservationsStore();
+    const { reservation, error, addReservation } = useReservationsStore();
 
     useEffect(() => {
 
         sent && addReservation(body);
 
+        // sent && reservation &&
+
     }, [body]);
+
+    //! hacer un reducer que limpie el objeto de update para ponerlo en un botón que limpie el form
 
 
     return (
@@ -37,6 +41,7 @@ export const ReservationForm = ({ user }) => {
                 <select
                     name="room_id"
                     id="room_id"
+                    //value={!reservation ? '' : reservation.room_id}
                     onChange={handleChange}
                 >
                     <option value=""> --Selecciona una opción-- </option>
@@ -62,6 +67,7 @@ export const ReservationForm = ({ user }) => {
                     type="date"
                     id="reservation_date"
                     name="reservation_date"
+                    // value={!reservation ? '' : reservation.reservation_date.substring(0, 10)}
                     onChange={handleChange}
                 />
 
@@ -72,6 +78,7 @@ export const ReservationForm = ({ user }) => {
                     name="start_time"
                     min="09:00"
                     max="21:00"
+                    //value={!reservation ? '' : reservation.start_time}
                     onChange={handleChange}
                 />
 
@@ -82,6 +89,7 @@ export const ReservationForm = ({ user }) => {
                     name="end_time"
                     min="10:00"
                     max="22:00"
+                    //value={!reservation ? '' : reservation.end_time}
                     onChange={handleChange}
                 />
 
