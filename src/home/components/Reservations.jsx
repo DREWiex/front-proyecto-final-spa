@@ -12,7 +12,7 @@ export const Reservations = ({ user }) => {
 
         getUserReservations(user_id);
 
-    }, [reservations]);
+    }, []);
 
 
     return (
@@ -29,7 +29,7 @@ export const Reservations = ({ user }) => {
 
                             <p> Tienes <span className="secondary">{reservations.length}</span> reservas. </p>
 
-                            <ReservationsTable reservations={reservations} />
+                            <ReservationsTable />
 
                         </div>
 

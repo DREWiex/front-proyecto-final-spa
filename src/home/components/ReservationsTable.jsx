@@ -1,8 +1,8 @@
 import { useReservationsStore } from "../hooks/useReservationsStore";
 
-export const ReservationsTable = ({ reservations }) => {
+export const ReservationsTable = () => {
 
-    const { deleteReservation } = useReservationsStore();
+    const { reservations, deleteReservation } = useReservationsStore();
 
 
     return (
@@ -10,7 +10,9 @@ export const ReservationsTable = ({ reservations }) => {
         <>
 
             <table>
+
                 <tbody>
+
                     {
                         reservations.map(item => (
                             <tr key={item.reservation_id}>
@@ -40,7 +42,9 @@ export const ReservationsTable = ({ reservations }) => {
                             </tr>
                         ))
                     }
+
                 </tbody>
+
             </table>
 
         </>

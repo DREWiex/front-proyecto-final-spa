@@ -57,7 +57,13 @@ export const useReservationsStore = () => {
 
                 throw error;
 
-            };
+            } else {
+
+                const { user_id } = body; // destructuración de la propiedad 'user_id' del objeto 'body' recibido por argumento
+
+                getUserReservations(user_id); // una vez se cree la reserva, se actualiza el estado y se renderiza
+
+            }
 
         } catch (error) {
             

@@ -11,11 +11,13 @@ export const ReservationForm = ({ user }) => {
 
     const { error, addReservation, getUserReservations } = useReservationsStore();
 
+    const { user_id } = user;
+
     useEffect(() => {
 
         sent && addReservation(body);
 
-        sent && getUserReservations()
+        sent && getUserReservations(user_id);
 
     }, [body]);
 
@@ -44,12 +46,7 @@ export const ReservationForm = ({ user }) => {
                     <option value=""> --Selecciona una opción-- </option>
 
                     {
-
-                        isLoading ? (
-
-                            console.log('Cargando…')
-
-                        ) : (
+                        isLoading ? ( null ) : (
 
                             room.map(item => (
                                 <option
