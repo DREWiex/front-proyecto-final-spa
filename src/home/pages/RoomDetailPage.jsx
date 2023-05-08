@@ -2,14 +2,10 @@ import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useRoomsStore } from '../hooks/useRoomsStore';
 import { NavBar } from '../layouts';
-import { ReservationForm } from '../components';
-import { useAuthStore } from '../../auth/hooks/useAuthStore';
 
 export const RoomDetailPage = () => {
 
     const { room, getRoomByID } = useRoomsStore();
-
-    const { user } = useAuthStore();
 
     const { id } = useParams();
 
@@ -50,15 +46,6 @@ export const RoomDetailPage = () => {
                     <h2> {room_name} </h2>
 
                     <p> {description} </p>
-
-                    {/* <button>
-                        <span className="material-symbols-rounded">
-                            event
-                        </span>
-                        Hacer reserva
-                    </button>
-
-                    <ReservationForm user={user}/> */}
 
                 </div>
 

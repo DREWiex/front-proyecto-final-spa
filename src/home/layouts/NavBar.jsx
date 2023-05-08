@@ -29,10 +29,10 @@ export const NavBar = () => {
                     {
                         toggle ? (
                             <ul>
-                                <li><Link to="#"> Mi perfil </Link></li>
-                                <li><Link to="#"> Reservas </Link></li>
-                                <li><Link to="#"> Salas </Link></li>
-                                <li><Link to="#"> Contacto </Link></li>
+                                {/* <li><Link to="#"> Mi perfil </Link></li>
+                                <li><Link to="/reservations"> Reservas </Link></li>
+                                <li><Link to="/rooms"> Salas </Link></li>
+                                <li><Link to="/contact"> Contacto </Link></li> */}
                                 <li><Link
                                     to="/login"
                                     onClick={logout}
@@ -42,10 +42,10 @@ export const NavBar = () => {
                             </ul>
                         ) : (
                             <ul className='nav-menu_visible'>
-                                <li><Link to="#"> Mi perfil </Link></li>
-                                <li><Link to="#"> Reservas </Link></li>
-                                <li><Link to="#"> Salas </Link></li>
-                                <li><Link to="#"> Contacto </Link></li>
+                                {/* <li><Link to="#"> Mi perfil </Link></li>
+                                <li><Link to="/reservations"> Reservas </Link></li>
+                                <li><Link to="/rooms"> Salas </Link></li>
+                                <li><Link to="/contact"> Contacto </Link></li> */}
                                 <li><Link
                                     to="/login"
                                     onClick={logout}

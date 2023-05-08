@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { DashboardPage, ReservationsPage, RoomsPage, UsersPage } from '../admin/pages';
 import { LoginPage, RegisterPage } from '../auth/pages';
-import { HomePage, MyReservationsPage, RoomDetailPage } from '../home/pages';
+import { HomePage, RoomDetailPage } from '../home/pages';
 import { useAuthStore } from '../auth/hooks/useAuthStore';
 import { useEffect } from 'react';
 import { AdminRouter, PublicRouter, UserRouter } from '../routers';
@@ -41,7 +41,6 @@ export const AppRouter = () => {
 
         <Route path='/' element={<HomePage />} />
         <Route path='room/:id' element={<RoomDetailPage />} />
-        <Route path='my-reservations' element={<MyReservationsPage />} />
 
         <Route path={'/*'} element={<Navigate to='/' />} />
 
