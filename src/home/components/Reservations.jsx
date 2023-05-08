@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { ReservationForm } from "../components";
 
@@ -25,20 +26,19 @@ export const Reservations = ({ user }) => {
 
                 {error == undefined ? (
 
-                    reservations.map(item => (
-                        <div key={item.reservation_id}>
-                            <p> {item.room} </p>
-                            <p> {item.reservation_date} </p>
-                            <p> {item.start_time} </p>
-                            <p> {item.end_time} </p>
+                        <div>
+
+                            <p> Tienes <span className="secondary">{reservations.length}</span> reservas. </p>
+
+                            <Link to='/my-reservations'> Ir a mis reservas </Link>
+
                         </div>
-                    ))
 
-                ) : (
+                    ) : (
 
-                    <p> No hay reservas. </p>
+                        <p> No tienes reservas. </p>
 
-                )
+                    )
                 }
 
                 <button>
