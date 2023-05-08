@@ -33,11 +33,15 @@ export const RoomDetailPage = () => {
 
             <NavBar />
 
-            <main className='relative flex-column'>
+            <main className='relative roomdp'>
 
-                <div id={room_id} className='flex-column'>
+                <Link to='/'>
+                    <span className="material-symbols-rounded secondary icon-font-size">
+                        arrow_back
+                    </span>
+                </Link>
 
-                    <Link to='/'> Volver </Link>
+                <div id={room_id}>
 
                     <div>
                         <img src={photo} alt={room_name} title={room_name} />
@@ -47,14 +51,14 @@ export const RoomDetailPage = () => {
 
                     <p> {description} </p>
 
-                    <button>
+                    {/* <button>
                         <span className="material-symbols-rounded">
                             event
                         </span>
                         Hacer reserva
                     </button>
 
-                    <ReservationForm user={user}/>
+                    <ReservationForm user={user}/> */}
 
                 </div>
 

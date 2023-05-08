@@ -17,7 +17,7 @@ export const Rooms = () => {
 
         <>
 
-            <section id="rooms" className="relative flex-column jc-space-around bg-ligthprimary">
+            <section id="rooms" className="relative rooms bg-ligthprimary">
 
                 <h2 className="title primary"> Salas de estudio </h2>
 

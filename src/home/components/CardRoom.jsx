@@ -28,8 +28,6 @@ export const CardRoom = (props) => {
 
         <Link to={`/room/${room_id}`}> Ver sala </Link>
 
-        <Link to='#'> Reservar </Link>
-
       </div>
 
     </article>
