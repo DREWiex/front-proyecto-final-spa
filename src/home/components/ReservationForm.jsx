@@ -101,13 +101,13 @@ export const ReservationForm = ({ user }) => {
 
             </form>
 
-            {
+            {/* {
                 error && error.map(item => (
                     <div key={item}>
                         <p> {item} </p>
                     </div>
                 ))
-            }
+            } */}
 
         </>
 

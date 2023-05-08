@@ -1,5 +1,8 @@
+import { useReservationsStore } from "../hooks/useReservationsStore";
 
 export const ReservationsTable = ({ reservations }) => {
+
+    const { deleteReservation } = useReservationsStore();
 
 
     return (
@@ -26,13 +29,16 @@ export const ReservationsTable = ({ reservations }) => {
                                         </span>
                                     </button>
                                 </td>
-                                <td>                        <button
-                                    className="dashboard-btn"
-                                >
-                                    <span className="material-symbols-rounded danger icon-font-size">
-                                        delete
-                                    </span>
-                                </button></td>
+                                <td>
+                                    <button
+                                        className="dashboard-btn"
+                                        onClick={() => { deleteReservation(item.reservation_id, item.user_id) }}
+                                    >
+                                        <span className="material-symbols-rounded danger icon-font-size">
+                                            delete
+                                        </span>
+                                    </button>
+                                </td>
                             </tr>
                         ))
                     }

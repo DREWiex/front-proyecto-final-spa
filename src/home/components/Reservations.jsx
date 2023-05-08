@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import { useEffect } from "react";
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { ReservationForm, ReservationsTable } from "../components";
 
 export const Reservations = ({ user }) => {
 
     const { reservations, error, getUserReservations } = useReservationsStore();
-
-    // const [toggle, setToggle] = useState(true);
 
     const { user_id } = user;
 
@@ -46,15 +43,6 @@ export const Reservations = ({ user }) => {
 
                     )
                 }
-
-                {/* <button
-                    onClick={() => { setToggle(!toggle) }}
-                >
-                    <span className="material-symbols-rounded">
-                        event
-                    </span>
-                    Hacer reserva
-                </button> */}
 
                 <ReservationForm user={user} />
 

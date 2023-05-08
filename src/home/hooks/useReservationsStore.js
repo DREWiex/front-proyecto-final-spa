@@ -68,12 +68,42 @@ export const useReservationsStore = () => {
     }; //!FUNC-ADDRESERVATION
 
 
+    const deleteReservation = async (reservation_id, user_id) => {
+
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${reservation_id}`;
+
+        try {
+            
+            const fetch = fetchData(url, 'DELETE');
+
+            if(fetch.ok){
+
+                getUserReservations(user_id);
+                
+            } else {
+
+                const { error } = fetch;
+
+                throw error;
+
+            };
+
+        } catch (error) {
+
+            dispatch(reservationsError(error));
+
+        };
+
+    }; //!FUNC-DELETERESERVATION
+
+
     return {
         reservations,
         error,
 
         getUserReservations,
-        addReservation
+        addReservation,
+        deleteReservation
     };
 
 };
