@@ -1,35 +1,58 @@
-import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid';
+import { useEffect, useState } from "react";
+import { useReservationsStore } from "../hooks/useReservationsStore";
+import { ReservationForm, ReservationsTable } from "../components";
+import { ReservationUpdateForm } from "./ReservationUpdateForm";
+import PropTypes from 'prop-types';
 
-export const Reservations = () => {
+export const Reservations = ({ user }) => {
 
-    const events = [ //! aquí renderizaría las reservas guardadas en la base de datos
-        { title: 'Meeting', start: new Date() }
-    ]
+    const [toggle, setToggle] = useState(true);
 
-    // function renderEventContent(eventInfo) {
-    //     return (
-    //         <>
-    //             <b>{eventInfo.timeText}</b>
-    //             <i>{eventInfo.event.title}</i>
-    //         </>
-    //     )
-    // }
+    const { reservations, error, getUserReservations } = useReservationsStore();
+
+    const { user_id } = user;
+
+
+    useEffect(() => {
+
+        getUserReservations(user_id);
+
+    }, []);
+
 
     return (
 
         <>
 
-            <section id="reservations" className="relative bg-ligthprimary">
+            <section id="reservations" className="relative reservations">
 
-                <h2 className='title primary'> Reservas </h2>
-                <FullCalendar
-                    plugins={[dayGridPlugin]}
-                    initialView='dayGridMonth'
-                    weekends={false}
-                    events={events}
-                    //eventContent={renderEventContent}
-                />
+                <h2 className="title primary"> Reservas </h2>
+
+                {error == undefined ? (
+
+                        <div>
+
+                            <p> Tienes <span className="secondary"><strong>{reservations.length}</strong></span> reservas. </p>
+
+                            <ReservationsTable toggle={toggle} setToggle={setToggle} />
+
+                        </div>
+
+                    ) : (
+
+                        <div>
+
+                            <p> No tienes reservas. </p>
+
+                        </div>
+
+                    )
+                }
+
+                {
+                    toggle ? (<ReservationForm user={user} />) : (<ReservationUpdateForm user={user} />)
+                }
+
 
             </section>
 
@@ -37,4 +60,8 @@ export const Reservations = () => {
 
     );
 
+};
+
+Reservations.propTypes = {
+    user: PropTypes.object.isRequired
 };

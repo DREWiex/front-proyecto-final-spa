@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useRoomsStore } from '../hooks/useRoomsStore';
-import { Link } from 'react-router-dom';
 import { NavBar } from '../layouts';
 
 export const RoomDetailPage = () => {
@@ -10,11 +9,9 @@ export const RoomDetailPage = () => {
 
     const { id } = useParams();
 
-    const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms/${id}`;
-
     useEffect(() => {
 
-        getRoomByID(url)
+        getRoomByID(id);
 
     }, [])
 
@@ -32,11 +29,15 @@ export const RoomDetailPage = () => {
 
             <NavBar />
 
-            <main className='relative flex-column'>
+            <main className='relative roomdp'>
 
-                <div id={room_id} className='flex-column'>
+                <Link to='/'>
+                    <span className="material-symbols-rounded secondary icon-font-size">
+                        arrow_back
+                    </span>
+                </Link>
 
-                    <Link to='/'> Volver </Link>
+                <div id={room_id}>
 
                     <div>
                         <img src={photo} alt={room_name} title={room_name} />
@@ -45,8 +46,6 @@ export const RoomDetailPage = () => {
                     <h2> {room_name} </h2>
 
                     <p> {description} </p>
-
-                    <Link to='#'> Reservar sala </Link>
 
                 </div>
 

@@ -9,15 +9,23 @@ export const useRoomsStore = () => {
     const dispatch = useDispatch();
 
 
-    const getRooms = async (url) => {
+    /**
+     * Obtener todas las salas de estudio de la base de datos.
+     * @function getRooms
+     * @async
+     * @param {String} url URL que recibe el fetch.
+     */
+    const getRooms = async () => {
+
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms`; // URL que recibe la API a través del fetch.
 
         dispatch(startLoadingRoom());
 
         try {
             
-            const { data } = await fetchData(url);
+            const { data } = await fetchData(url); // destructuración de la propiedad 'data' del objeto que devuelve el fetch
 
-            dispatch(setRoom(data));
+            dispatch(setRoom(data)); // sobreescribe el estado 'room' con los datos de las salas de estudio que contiene el objeto 'data'
 
         } catch (error) {
 
@@ -28,15 +36,23 @@ export const useRoomsStore = () => {
     }; //!FUNC-GETROOMS
 
     
-    const getRoomByID = async (url) => {
+    /**
+     * Obtener por ID una sala de estudio de la base de datos.
+     * @function getRoomByID
+     * @async
+     * @param {String} url URL que recibe el fetch.
+     */
+    const getRoomByID = async (id) => {
+
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms/${id}`; // URL que recibe la API a través del fetch.
 
         dispatch(startLoadingRoom());
 
         try {
             
-            const { data } = await fetchData(url);
+            const { data } = await fetchData(url);  // destructuración de la propiedad 'data' del objeto que devuelve el fetch
 
-            dispatch(setRoomByID(data));
+            dispatch(setRoomByID(data)); // sobreescribe el estado 'room' con los datos de la sala de estudio que contiene el objeto 'data'
 
         } catch (error) {
             

@@ -13,6 +13,11 @@ export const useUsersStore = () => {
     const dispatch = useDispatch();
 
 
+    /**
+     * Obtener todos los usuarios de la base de datos.
+     * @function getUsers
+     * @async
+     */
     const getUsers = async () => {
 
         dispatch(onLoading());
@@ -44,23 +49,21 @@ export const useUsersStore = () => {
     }; //!FUNC-GETUSERS
 
 
+    /**
+     * Crear un usuario en la base de datos.
+     * @function addUser
+     * @async
+     * @param {Object} body Datos recibidos del formulario.
+     */
     const addUser = async (body) => {
 
         dispatch(onLoading());
 
         try {
             
-            const fetch = fetchData(`${import.meta.env.VITE_API_URL_BASE}/api/v1/users`, 'POST', body); // crear un nuevo usuario
+            const fetch = fetchData(`${import.meta.env.VITE_API_URL_BASE}/api/v1/users`, 'POST', body);
 
-            if(fetch.ok){
-
-                // const { data } = await fetchData(`${import.meta.env.VITE_API_URL_BASE}/api/v1/users`); // obtener el objeto de usuarios actualizado
-
-                // dispatch(setUsers(data));
-
-                console.log(fetch)
-
-            } else {
+            if(!fetch.ok){
 
                 const { error } = fetch;
 
@@ -77,6 +80,12 @@ export const useUsersStore = () => {
     } //!FUNC-ADDUSER
 
 
+    /**
+     * Eliminar por ID un usuario de la base de datos.
+     * @function deleteUser
+     * @async
+     * @param {String} id ID del usuario.
+     */
     const deleteUser = async (id) => {
 
         dispatch(onLoading());

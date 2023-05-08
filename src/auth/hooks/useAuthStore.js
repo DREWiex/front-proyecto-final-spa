@@ -32,9 +32,9 @@ export const useAuthStore = () => {
 
             if(response.ok){
 
-                const { data, token } = response;
+                const { data, token } = response; // destructuración de las propiedades 'data' y 'token' del objeto que devuelve el fetch
 
-                setCookies('token', token, { // guarda el 'token' (String) del usuario en una cookie
+                setCookies('token', token, { // guarda el token del usuario en una cookie
                     path: '/',
                     maxAge: 60 * 60 * 24, // expiración: 1 día
                     secure: true,

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const CardRoom = (props) => {
 
@@ -28,8 +29,6 @@ export const CardRoom = (props) => {
 
         <Link to={`/room/${room_id}`}> Ver sala </Link>
 
-        <Link to='#'> Reservar </Link>
-
       </div>
 
     </article>
@@ -37,3 +36,7 @@ export const CardRoom = (props) => {
   );
 
 };
+
+CardRoom.propTypes = {
+  props: PropTypes.object.isRequired
+}

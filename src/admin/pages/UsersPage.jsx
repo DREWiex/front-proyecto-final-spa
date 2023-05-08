@@ -8,21 +8,13 @@ export const UsersPage = () => {
 
   const [toggle, setToggle] = useState(true);
 
-  const {
-    user,
-    error,
-    isLoading,
-    getUsers,
-    deleteUser
-  } = useUsersStore();
+  const { user, error, isLoading, getUsers, deleteUser } = useUsersStore();
 
   useEffect(() => {
 
     getUsers();
 
   }, []);
-
-  //! el problema es que no está cargando el useEffect cuando crea un usuario en AddUserForm
 
 
   return (

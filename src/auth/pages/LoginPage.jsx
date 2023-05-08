@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { useForm } from "../../hooks/useForm";
 import { useEffect } from 'react';
 import { useAuthStore } from '../hooks/useAuthStore';
-import { Errors } from '../components/Errors';
 
 export const LoginPage = () => {
 
@@ -78,8 +77,6 @@ export const LoginPage = () => {
                         value="Login"
                         disabled={sent && !error} // si se envían los datos y hay errores, no se deshabilita
                     />
-
-                    <Link to='#'> Recuperar contraseña </Link>
 
                 </form>
 

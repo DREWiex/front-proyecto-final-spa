@@ -211,11 +211,135 @@ label{
 }
 
 
+/* RESERVATIONS *************************/
+
+.reservations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.reservations div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.reservations div p{
+    width: fit-content;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.reservations table{
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservations td{
+    font-size: 0.9rem;
+    padding: 5px;
+    border-bottom: 1px solid var(--light);
+}
+
+.reservations form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 768px;
+    padding: 15px;
+    border: 1px solid var(--light);
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.reservations form > *{
+    justify-content: center;
+    width: 100%;
+    max-width: 768px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light);
+}
+
+
 /* ROOMS *************************/
+
+.rooms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.rooms > *{
+    padding: 10px 0;
+    margin: 10px 0;
+}
 
 .grid-container{
     display: grid;
     grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.grid-container article{
+    width: 90%;
+    padding: 15px;
+    margin: 0 auto;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+.grid-container article > *{
+    margin-bottom: 10px;
+}
+
+.grid-container div a{
+    font-weight: 600;
+    color: var(--white);
+}
+
+
+/* ROOM DP *************************/
+
+.roomdp{
+    display: flex;
+    flex-direction: column;
+}
+
+.roomdp > a{
+    width: 90%;
+    margin: 20px auto 0;
+}
+
+.roomdp a span{
+    font-weight: 700;
+}
+
+.roomdp > div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 15px;
+    margin: 20px auto 0;
+    color: var(--white);
+    background-color: var(--primary);
+    border: 1px solid var(--light);
+    border-radius: 5px;
+}
+
+.roomdp div > *{
+    margin-bottom: 10px;
 }
 
 
@@ -435,10 +559,6 @@ label{
     justify-content: space-evenly;
 }
 
-.red{
-    background-color: red;
-}
-
 
 /* ***************************************/
 /* MEDIA QUERIES *************************/
@@ -514,6 +634,7 @@ label{
 
     .grid-container{
         grid-template-columns: repeat(2, 1fr);
+        gap: 0;
     }
   
 } /* 992px end */

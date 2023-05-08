@@ -2,17 +2,23 @@ import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useUsersStore } from "../../hooks/useUsersStore";
 
+/**
+ * Formulario de registro de usuarios.
+ * @function AddUserForm
+ */
 export const AddUserForm = () => {
 
-    const { body, sent, handleChange, handleSubmit } = useForm()
+    const { body, sent, handleChange, handleSubmit } = useForm() // destructuración de las propiedades que devuelve el hook 'useForm'
 
-    const { user, error, isLoading, getUsers, addUser } = useUsersStore();
+    const { getUsers, addUser } = useUsersStore(); // destructuración de las propiedades que devuelve el hook 'useUsersStore'
 
     useEffect(() => {
 
-        sent && addUser(body);
+        sent && addUser(body); // si el formularío se envía ('sent' es 'true'), invoca a la función 'addUser'
 
-    }, [body]);
+        sent && getUsers() // si el formularío se envía ('sent' es 'true'), invoca a la función 'getUsers' (dashboard del admin)
+
+    }, [body]); // además de cuando se monta el componente, el useEffect se activará cada vez que el estado 'body' cambie
 
 
     return (
@@ -66,13 +72,6 @@ export const AddUserForm = () => {
                     <option value="2"> User </option>
                 </select>
 
-                <label htmlFor="image"> Foto de perfil </label>
-                <input
-                    type="file"
-                    id="image"
-                    name="image"
-                />
-
                 <input
                     type="hidden"
                     id="avatar"
@@ -84,7 +83,6 @@ export const AddUserForm = () => {
                     className='submit'
                     type="submit"
                     value="Crear cuenta"
-                    // disabled={sent && !error} // si se envían los datos y hay errores, no se deshabilita
                 />
 
             </form>

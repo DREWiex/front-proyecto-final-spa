@@ -1,4 +1,5 @@
 import Cookies from 'universal-cookie';
+import PropTypes from 'prop-types';
 
 /**
  * Guardar el token en una cookie.
@@ -28,3 +29,14 @@ export const removeCookies = (name) => {
   cookies.remove(name);
 
 }; //!FUNC-REMOVECOOKIES
+
+
+setCookies.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  options: PropTypes.object.isRequired
+};
+
+removeCookies.propTypes = {
+  name: PropTypes.string.isRequired
+};
