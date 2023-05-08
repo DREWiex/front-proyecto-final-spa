@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export const CardRoom = (props) => {
 
@@ -35,3 +36,7 @@ export const CardRoom = (props) => {
   );
 
 };
+
+CardRoom.propTypes = {
+  props: PropTypes.object.isRequired
+}

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useForm } from "../../hooks/useForm";
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { useRoomsStore } from "../hooks/useRoomsStore";
+import PropTypes from 'prop-types';
 
 export const ReservationUpdateForm = ({ user }) => {
 
@@ -9,7 +10,7 @@ export const ReservationUpdateForm = ({ user }) => {
 
     const { room, isLoading } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
-    const { reservation, error, loadingReservations, updateReservation } = useReservationsStore();
+    const { reservation, loadingReservations, updateReservation } = useReservationsStore();
 
     useEffect(() => {
 
@@ -110,18 +111,12 @@ export const ReservationUpdateForm = ({ user }) => {
                 )
             }
 
-            {/* {
-        !error ? ( null ) : (
-            error.map(item => (
-                <div key={item}>
-                    <p> {item} </p>
-                </div>
-            ))
-        )
-    } */}
-
         </>
 
     );
 
+};
+
+ReservationUpdateForm.propTypes = {
+    user: PropTypes.object.isRequired
 };

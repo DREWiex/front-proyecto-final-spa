@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { fetchData } from '../../api/fetch';
+import PropTypes from 'prop-types';
 
 /**
  * Hook que envía los datos del formulario al e-mail del admin.
@@ -53,4 +54,9 @@ export const useEmailJS = (data, sent) => {
 
     }, [data]);
 
+};
+
+useEmailJS.propTypes = {
+    data: PropTypes.object.isRequired,
+    sent: PropTypes.bool.isRequired
 };

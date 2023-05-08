@@ -17,7 +17,7 @@ export const useRoomsStore = () => {
      */
     const getRooms = async () => {
 
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms`; // URL que recibe la API a través del fetch.
 
         dispatch(startLoadingRoom());
 
@@ -44,7 +44,7 @@ export const useRoomsStore = () => {
      */
     const getRoomByID = async (id) => {
 
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms/${id}`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/rooms/${id}`; // URL que recibe la API a través del fetch.
 
         dispatch(startLoadingRoom());
 

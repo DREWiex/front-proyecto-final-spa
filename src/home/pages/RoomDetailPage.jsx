@@ -11,7 +11,7 @@ export const RoomDetailPage = () => {
 
     useEffect(() => {
 
-        getRoomByID(id)
+        getRoomByID(id);
 
     }, [])
 

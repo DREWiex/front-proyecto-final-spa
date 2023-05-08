@@ -14,9 +14,15 @@ export const useReservationsStore = () => {
     const dispatch = useDispatch();
 
 
+    /**
+     * Obtener por ID de un usuario todas las reservas de la base de datos.
+     * @function getUserReservations
+     * @async
+     * @param {String} id ID del usuario.
+     */
     const getUserReservations = async (id) => {
 
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/search/user/${id}`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/search/user/${id}`; // URL que recibe la API a través del fetch
 
         try {
             
@@ -45,11 +51,17 @@ export const useReservationsStore = () => {
     }; //!FUNC-GETUSERRESERVATIONS
 
 
+    /**
+     * Obtener por ID una reserva de la base de datos.
+     * @function getReservationByID
+     * @async
+     * @param {String} id ID de la reserva.
+     */
     const getReservationByID = async (id) => {
 
         dispatch(onLoadingReservations())
 
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${id}`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${id}`; // URL que recibe la API a través del fetch
 
         try {
             
@@ -78,9 +90,15 @@ export const useReservationsStore = () => {
     }; //!FUNC-GETRESERVATIONBYID
 
 
+    /**
+     * Crear reserva en la base de datos
+     * @function addReservation
+     * @async
+     * @param {Object} body Datos recibidos del formulario de  reservas
+     */
     const addReservation = async (body) => {
 
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations`; // URL que recibe la API a través del fetch
 
         try {
             
@@ -109,9 +127,16 @@ export const useReservationsStore = () => {
     }; //!FUNC-ADDRESERVATION
 
 
+    /**
+     * Eliminar por ID una reserva en la base de datos.
+     * @function deleteReservation
+     * @async
+     * @param {String} reservation_id ID de la reserva.
+     * @param {String} user_id ID del usuario.
+     */
     const deleteReservation = async (reservation_id, user_id) => {
 
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${reservation_id}`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${reservation_id}`; // URL que recibe la API a través del fetch
 
         try {
             
@@ -138,19 +163,21 @@ export const useReservationsStore = () => {
     }; //!FUNC-DELETERESERVATION
 
 
+    /**
+     * Editar/actualizar por ID una reserva en la base de datos.
+     * @function updateReservation
+     * @async
+     * @param {Object} body Datos recibidos del formulario de editar reservas
+     */
     const updateReservation = async (body) => {
 
         const { reservation_id, user_id } = body; // destructuración de las propiedades 'reservation_id' y 'user_id' del objeto 'body' recibido por argumento
 
-        console.log(reservation_id, user_id)
-
-        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${reservation_id}`;
+        const url = `${import.meta.env.VITE_API_URL_BASE}/api/v1/reservations/${reservation_id}`; // URL que recibe la API a través del fetch
 
         try {
             
             const fetch = await fetchData(url, 'PUT', body);
-
-            console.log(fetch);
 
             if(!fetch.ok){
 

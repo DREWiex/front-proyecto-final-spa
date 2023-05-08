@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { useAuthStore } from '../hooks/useAuthStore';
-import { Errors } from '../components/Errors';
 
 export const RegisterPage = () => {
 

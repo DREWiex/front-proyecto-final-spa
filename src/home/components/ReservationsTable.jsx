@@ -1,4 +1,5 @@
 import { useReservationsStore } from "../hooks/useReservationsStore";
+import PropTypes from 'prop-types';
 
 export const ReservationsTable = ({ toggle, setToggle }) => {
 
@@ -57,4 +58,9 @@ export const ReservationsTable = ({ toggle, setToggle }) => {
 
     );
 
+};
+
+ReservationsTable.propTypes = {
+    toggle: PropTypes.bool.isRequired,
+    setToggle: PropTypes.func.isRequired
 };

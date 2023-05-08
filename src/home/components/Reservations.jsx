@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useReservationsStore } from "../hooks/useReservationsStore";
 import { ReservationForm, ReservationsTable } from "../components";
 import { ReservationUpdateForm } from "./ReservationUpdateForm";
+import PropTypes from 'prop-types';
 
 export const Reservations = ({ user }) => {
 
@@ -59,4 +60,8 @@ export const Reservations = ({ user }) => {
 
     );
 
+};
+
+Reservations.propTypes = {
+    user: PropTypes.object.isRequired
 };
