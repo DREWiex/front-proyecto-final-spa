@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import { useReservationsStore } from "../hooks/useReservationsStore";
-import { ReservationForm } from "../components";
+import { ReservationForm, ReservationsTable } from "../components";
 
 export const Reservations = ({ user }) => {
 
@@ -31,6 +31,8 @@ export const Reservations = ({ user }) => {
                         <div>
 
                             <p> Tienes <span className="secondary">{reservations.length}</span> reservas. </p>
+
+                            <ReservationsTable reservations={reservations} />
 
                         </div>
 

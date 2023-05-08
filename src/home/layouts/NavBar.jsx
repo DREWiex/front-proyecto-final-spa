@@ -30,8 +30,8 @@ export const NavBar = () => {
                         toggle ? (
                             <ul>
                                 <li><Link to="#"> Mi perfil </Link></li>
-                                <li><Link to="#"> Salas </Link></li>
                                 <li><Link to="#"> Reservas </Link></li>
+                                <li><Link to="#"> Salas </Link></li>
                                 <li><Link to="#"> Contacto </Link></li>
                                 <li><Link
                                     to="/login"
@@ -43,8 +43,8 @@ export const NavBar = () => {
                         ) : (
                             <ul className='nav-menu_visible'>
                                 <li><Link to="#"> Mi perfil </Link></li>
-                                <li><Link to="#"> Salas </Link></li>
                                 <li><Link to="#"> Reservas </Link></li>
+                                <li><Link to="#"> Salas </Link></li>
                                 <li><Link to="#"> Contacto </Link></li>
                                 <li><Link
                                     to="/login"
