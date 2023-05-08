@@ -9,15 +9,11 @@ export const ReservationForm = ({ user }) => {
 
     const { room, isLoading } = useRoomsStore(); // las options del select se renderizarán de forma dinámica
 
-    const { error, addReservation, getUserReservations } = useReservationsStore();
-
-    const { user_id } = user;
+    const { error, addReservation } = useReservationsStore();
 
     useEffect(() => {
 
         sent && addReservation(body);
-
-        sent && getUserReservations(user_id);
 
     }, [body]);
 
@@ -33,7 +29,7 @@ export const ReservationForm = ({ user }) => {
                 <input
                     type="hidden"
                     name="user_id"
-                    value={user.user_id}
+                    value={user.user_id} // recibo el objeto 'user' por props
                     onChange={handleChange}
                 />
 
@@ -56,7 +52,6 @@ export const ReservationForm = ({ user }) => {
                                     {item.room}
                                 </option>
                             ))
-
                         )
                     }
 
@@ -99,11 +94,13 @@ export const ReservationForm = ({ user }) => {
             </form>
 
             {/* {
-                error && error.map(item => (
-                    <div key={item}>
-                        <p> {item} </p>
-                    </div>
-                ))
+                !error ? ( null ) : (
+                    error.map(item => (
+                        <div key={item}>
+                            <p> {item} </p>
+                        </div>
+                    ))
+                )
             } */}
 
         </>

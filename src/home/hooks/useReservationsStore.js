@@ -88,6 +88,10 @@ export const useReservationsStore = () => {
 
                 throw error;
 
+            } else {
+
+                getUserReservations(user_id);
+
             };
 
         } catch (error) {
