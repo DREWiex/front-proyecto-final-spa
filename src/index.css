@@ -1,69 +1,640 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:ital,wght@0,100;0,400;0,600;0,700;1,100;1,400&display=swap');
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+:root{
+    --white: #fefefe;
+    --light: #edebeb;
+    --dark: #12191e;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+    --lightprimary: #d0fbf0;
+    --primary: #043529;
+    --darkprimary: #042f24;
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
+    --lightsecondary: #d7f4e0;
+    --secondary: #30a954;
+    --darksecondary: #0b2814;
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+    --lightsuccess: #d3f8df;
+    --success: #189841;
+    --darksuccess: #072c13;
+
+    --lightwarning: #fbf3d0;
+    --warning: #eac31b;
+    --darkwarning: #2f2704;
+
+    --lightdanger: #fccfd7;
+    --danger: #ec0d37;
+    --darkdanger: #30030b;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+/* SELECTORES DE ETIQUETA *************************/
+
+body{
+    font-family: 'Raleway', sans-serif;
+    color: var(--dark);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+main{
+    min-height: calc(100vh);
 }
+
+a{
+    width: fit-content;
+    text-decoration: none;
+    color: var(--dark);
+}
+
+img{
+    width: 100%;
+}
+
+label{
+    display: none !important;
+}
+
+
+/* SELECTORES DE CLASE *************************/
+
+/* PORTADA *************************/
+
+.cover{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: calc(100vh - 70px);
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+
+/* NAV BAR *************************/
+
+.navbar{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    background-color: var(--primary);
+    z-index: 100;
+}
+
+.navbar div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.navbar div a{
+    font-size: 2.5rem;
+    margin: 0 20px 0 50px;
+    color: var(--white);
+}
+
+.nav-toggle{
+    font-size: 2rem;
+    background: none;
+    border: none;
+    margin: 0 50px 0 20px;
+    cursor: pointer;
+    color: var(--white);
+}
+
+.navbar div ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    position: fixed;
+    top: 70px;
+    width: 100%;
+    list-style: none;
+    background-color: var(--white);
+    height: calc(100% - 70px);  /* calcula la altura total restándole el height del nav */
+    overflow-y: auto; /* aparece el scroll en caso de ser necesario */
+    left: 100%; /* el menú está fuera de pantalla (hacia la derecha) */
+    transition: left 0.8s;
+}
+
+.navbar div ul li a{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: var(--dark);
+}
+
+.nav-menu_visible{
+    left: 30% !important; /* clase que aplicará la transición para que aparezca el nav-menu */
+}
+
+
+/* FORMS AUTH *************************/
+
+.auth{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+}
+
+.auth form{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.auth form a{
+    font-size: 0.8rem;
+    padding: 0;
+    margin: 40px auto;
+}
+
+.auth form a:focus, .auth form a:hover{
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.auth form a:active{
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.auth form input{
+    min-width: 100px;
+    max-width: 400px;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--light);
+}
+
+.auth form > *{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.submit{
+    font-size: 1rem;
+    min-width: 100px;
+    max-width: 200px !important;
+    border: none;
+    border-radius: 20px !important;
+    margin-top: 30px !important;
+    color: var(--white);
+    background-color: var(--secondary) !important;
+    cursor: pointer;
+}
+
+.submit:focus, .submit:hover{
+    color: var(--secondary);
+    background-color: var(--white) !important;
+    outline: 1px solid var(--secondary);
+}
+
+.submit:active{
+    color: var(--primary);
+    background-color: var(--white) !important;
+    outline: 1px solid var(--primary);
+}
+
+
+/* RESERVATIONS *************************/
+
+.reservations{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.reservations div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.reservations div p{
+    width: fit-content;
+    align-self: center;
+    justify-self: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.reservations table{
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.reservations td{
+    font-size: 0.9rem;
+    padding: 5px;
+    border-bottom: 1px solid var(--light);
+}
+
+.reservations form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 768px;
+    padding: 15px;
+    border: 1px solid var(--light);
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.reservations form > *{
+    justify-content: center;
+    width: 100%;
+    max-width: 768px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light);
+}
+
+
+/* ROOMS *************************/
+
+.rooms{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.rooms > *{
+    padding: 10px 0;
+    margin: 10px 0;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.grid-container article{
+    width: 90%;
+    padding: 15px;
+    margin: 0 auto;
+    color: var(--white);
+    background-color: var(--primary);
+    border-radius: 5px;
+}
+
+.grid-container article > *{
+    margin-bottom: 10px;
+}
+
+.grid-container div a{
+    font-weight: 600;
+    color: var(--white);
+}
+
+
+/* ROOM DP *************************/
+
+.roomdp{
+    display: flex;
+    flex-direction: column;
+}
+
+.roomdp > a{
+    width: 90%;
+    margin: 20px auto 0;
+}
+
+.roomdp a span{
+    font-weight: 700;
+}
+
+.roomdp > div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 15px;
+    margin: 20px auto 0;
+    color: var(--white);
+    background-color: var(--primary);
+    border: 1px solid var(--light);
+    border-radius: 5px;
+}
+
+.roomdp div > *{
+    margin-bottom: 10px;
+}
+
+
+/* FORM CONTACT *************************/
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    min-height: 100vh;
+}
+
+.contact form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 768px;
+    padding: 15px;
+    border: 1px solid var(--light);
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.contact form > *{
+    justify-content: center;
+    width: 100%;
+    max-width: 768px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light);
+}
+
+
+/* DASHBOARD-ADMIN *************************/
+
+.dashboard{
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+    margin: 0 auto;
+}
+
+.dashboard > *{
+    margin: 10px 0;
+}
+
+.dashboard > button{
+    width: fit-content;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dashboard-menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-menu div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-menu div > *{
+    align-content: center;
+    padding: 10px 0;
+}
+
+.dashboard-menu div a span{
+    font-size: 2.5rem;
+    color: var(--secondary);
+}
+
+.dashboard-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-font-size{
+    font-size: 1.8rem;
+}
+
+
+/* DASHBOARD-ADMIN *************************/
+
+.dashboard-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.dashboard-child > *{
+    width: 90%;
+    margin: 0 auto 20px;
+}
+
+.dashboard-child h1{
+    margin-top: 20px;
+}
+
+.dashboard-child section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard-child section div{
+    display: flex;
+    align-self: start;
+    margin-bottom: 5px;
+}
+
+.dashboard-child section div p{
+    font-weight: 600;
+}
+
+.dashboard-child section div > *{
+    align-self: center;
+    padding: 0 5px;
+}
+
+.dashboard-child table{
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.dashboard-child th{
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 5px;
+    color: var(--white);
+    background-color: var(--primary);
+    border: 1px solid var(--dark);
+}
+
+.dashboard-child td{
+    font-size: 0.9rem;
+    padding: 5px;
+    border: 1px solid var(--dark);
+}
+
+.dashboard-child form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+.dashboard-child form > *{
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--light);
+}
+
+
+/* REUTILIZABLES *************************/
+
+.relative{
+    position: relative;
+    top: 70px;
+    width: 100%;
+    min-height: calc(100vh - 70px);
+}
+
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.title{
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.italic{
+    font-style: italic;
+}
+
+.primary{
+    color: var(--primary);
+}
+
+.secondary{
+    color: var(--secondary);
+}
+
+.danger{
+    color: var(--danger);
+}
+
+.bg-ligthprimary{
+    background-color: var(--lightprimary);
+}
+
+.lora{
+    font-family: 'Lora', serif;
+}
+
+.jc-space-around{
+    justify-content: space-around;
+}
+
+.jc-space-evenly{
+    justify-content: space-evenly;
+}
+
+
+/* ***************************************/
+/* MEDIA QUERIES *************************/
+/* ***************************************/
+
+/* 768px *************************/
+
+@media screen and (min-width:768px) {
+
+    /* NAV BAR *************************/
+
+    .nav-menu_visible{
+        left: 60% !important; /* clase que aplicará la transición para que aparezca el nav-menu */
+    }
+
+
+    /* DASHBOARD-ADMIN *************************/
+
+    .dashboard-menu{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 992px;
+        margin: 40px auto;
+    }
+
+} /* 768px end */
+  
+  
+/* 992px *************************/
+  
+@media screen and (min-width:992px) {
+  
+    /* label{
+        display: initial !important;
+    } */
+
+    .nav-toggle{
+        display: none;
+    }
+
+    .navbar div ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        position: static;
+        top: 0;
+        height: 100%;
+        margin-right: 10px;
+        overflow-y: auto;
+        left: 0;
+        transition: none; /* valor por defecto */
+        background-color: var(--primary);
+    }
+
+    .navbar div ul li a{
+        font-size: 1rem !important;
+        color: var(--white);
+    }
+
+    .navbar div ul li a:focus, .navbar div ul li a:hover{
+        font-weight: 600;
+        transition: 0.5s;
+    }
+
+    .navbar div ul li a:active{
+        font-weight: 700;
+        transition: 0.5s;
+    }
+
+    /* ROOMS *************************/
+
+    .grid-container{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+    }
+  
+} /* 992px end */
