@@ -7,9 +7,10 @@ Desarrollado por: **Andrés León**
 
 ### Introducción
 
-**Studyverse** es una aplicación que permite reservar salas de estudio a los alumnos.
-
-Despliegue hecho en Netlify: https://profound-starburst-ffb911.netlify.app
+**Studyverse** es una aplicación que permite reservar salas de estudio a los alumnos. Consta de tres entornos:
+- Rutas públicas: login y registro.
+- Dashboard del usuario: una vez logueado con el rol de usuario, tendrá acceso a la información de sus reservas, las salas de estudio y formulario de contacto.
+- Dashboard del admin: se accede con un único usuario con rol de admin. En esta área podrá crear, editar y eliminar usuarios, salas de estudio y reservas.
 
 ---
 
@@ -53,9 +54,15 @@ yarn dev
 
 ---
 
-### Librerías:
+### Librerías
 
 - **EmailJS:** servicio que ayuda a enviar correos electrónicos utilizando aplicaciones del lado del cliente, en este caso React. Está implementado en el formulario de contacto que se encuentra en la página principal del usuario.
+
+---
+
+### Despliegue
+
+Despliegue hecho en Netlify: https://profound-starburst-ffb911.netlify.app
 
 ---
 
