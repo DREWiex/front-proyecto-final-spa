@@ -7,10 +7,12 @@ Desarrollado por: **Andrés León**
 
 ### Introducción
 
-**Studyverse** es una aplicación que permite reservar salas de estudio a los alumnos. Consta de tres entornos:
+**Studyverse** es una aplicación que permite reservar salas de estudio a los alumnos que están registrados.
+
+Consta de tres entornos:
 - Rutas públicas: login y registro.
-- Dashboard del usuario: una vez logueado con el rol de usuario, tendrá acceso a la información de sus reservas, las salas de estudio y formulario de contacto.
-- Dashboard del admin: se accede con un único usuario con rol de admin. En esta área podrá crear, editar y eliminar usuarios, salas de estudio y reservas.
+- Dashboard del usuario: se accede si el rol del usuario es 'user'. En esta área podrá consultar la información de sus reservas, salas de estudio y formulario de contacto.
+- Dashboard del admin: se accede con un único usuario con rol 'admin'. En esta área podrá crear, editar y eliminar usuarios, salas de estudio y reservas.
 
 ---
 
